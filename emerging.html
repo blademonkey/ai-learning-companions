@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emerging concepts | AI Learning Companions</title><meta name="description" content="Companion pages for an AI learning podcast series: key terms, comparisons, worked scenarios, quizzes and sources.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="beam"></span>AI Learning Companions</a><button class="menu" aria-label="Menu" onclick="document.body.classList.toggle('open')">Menu</button><nav><a href="index.html">Home</a><a href="ep1.html">Ep 1</a><a href="ep2.html">Ep 2</a><a href="ep3.html">Ep 3</a><a href="ep4.html">Ep 4</a><a href="ep5.html">Ep 5</a><a href="advanced.html">Advanced concepts</a><a href="emerging.html" aria-current="page">Emerging concepts</a><a href="comparison.html">Comparison</a></nav></div></header>
+<main class="wrap layout"><aside class="toc"><b>On this page</b><a href="#who-to-watch-and-why">Who to watch (and why)</a><a href="#emerging-concepts">Emerging concepts</a><a href="#how-to-read-this-section">How to read this section</a><a href="#maintenance-proposed-not-scheduled">Maintenance (proposed, not scheduled)</a></aside><article><h1>Emerging concepts: what people are trying</h1>
+<p>Last checked 2026-10-04. Public pages and primary posts only. No X account was used, so X posts are not quoted here. Where a person is mainly active on X, this page links their public blog, talk, or newsletter instead. Everything below is labeled by evidence level.</p>
+<p>Evidence levels:
+- <strong>Evaluated</strong>: tested against a stated method or benchmark, with the method visible.
+- <strong>Practitioner report</strong>: a named person describing what worked for them. Useful, not proof.
+- <strong>Demo or claim</strong>: shown or asserted, with no independent test seen.
+- <strong>Framework</strong>: a way of organizing ideas. Not a result.</p>
+<h2 id="who-to-watch-and-why">Who to watch (and why)</h2>
+<p>Selected because each publishes in public, links their sources, and speaks to a different layer of the series. This is a starting list, not a ranking. Review it every quarter.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Public home</th>
+<th>Why a generalist should care</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Andrej Karpathy</td>
+<td><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki note</a>, <a href="https://www.ycombinator.com/library/MW-andrej-karpathy-software-is-changing-again">Software Is Changing (Again) talk</a></td>
+<td>Clear framings of how software and knowledge work shift when models are in the loop</td>
+</tr>
+<tr>
+<td>Simon Willison</td>
+<td><a href="https://simonwillison.net/">simonwillison.net</a></td>
+<td>Careful, hands-on notes on agents and coding tools, with a habit of separating what he tested from what he heard</td>
+</tr>
+<tr>
+<td>Ethan Mollick</td>
+<td><a href="https://www.oneusefulthing.org/">One Useful Thing</a></td>
+<td>Generalist-level writing on using AI at work, with experiments in plain language</td>
+</tr>
+<tr>
+<td>Harrison Chase</td>
+<td><a href="https://www.langchain.com/blog/the-rise-of-context-engineering">LangChain blog</a></td>
+<td>Popularized "context engineering" as the practical skill behind reliable agents</td>
+</tr>
+<tr>
+<td>swyx and Latent Space</td>
+<td><a href="https://www.latent.space/">latent.space</a></td>
+<td>Industry-level view of how the "AI engineer" role and agent products are developing</td>
+</tr>
+<tr>
+<td>Wanderloots</td>
+<td><a href="https://wanderloots.com/resources/">wanderloots.com</a></td>
+<td>Teaches Obsidian and AI note workflows for second-brain style setups</td>
+</tr>
+</tbody>
+</table></div>
+<p>Not verified: follower counts, current X activity, or whether any of them endorse each other's claims.</p>
+<h2 id="emerging-concepts">Emerging concepts</h2>
+<h3>1. The compiled wiki (LLM-maintained knowledge base)</h3>
+<ul>
+<li>What people try: have an LLM read sources once and maintain a linked, structured wiki, instead of searching raw documents on every question. Karpathy's note describes three layers (raw sources, the wiki, and a schema file) and operations to ingest, query, and lint. Perplexity Engineering describes "Brain", a Markdown knowledge wiki used as agent memory, with citations linking claims to sources (posted 2026-08-19).</li>
+<li>Evidence: Karpathy's note is a framework and a practitioner description. Perplexity's post is a vendor report on its own product; its validation section is the part to read before trusting any numbers.</li>
+<li>Counterpoint: Karpathy himself says the index approach works at moderate scale and avoids embedding infrastructure, which implies limits at larger scale. A wiki can also compound its own mistakes unless a human spot-checks it.</li>
+<li>Generalist question: who is accountable for the wiki's accuracy, and how often is it linted?</li>
+<li>Series link: episode 5 (compiled knowledge vs RAG vs long context), companion page.</li>
+</ul>
+<h3>2. Context engineering</h3>
+<ul>
+<li>What people try: treat the model's inputs (instructions, retrieved facts, tools, history) as something to design deliberately. Chase's June 2025 post defines it as "building dynamic systems to provide the right information and tools in the right format" and argues that most agent failures are context failures.</li>
+<li>Evidence: practitioner framework. Widely adopted as a term; no single benchmark defines it.</li>
+<li>Counterpoint: it can become a rebrand of prompt engineering. Ask what changed in practice.</li>
+<li>Series link: episodes 2 and 8.</li>
+</ul>
+<h3>3. The software factory and the five levels of AI-assisted coding</h3>
+<ul>
+<li>What people try: Dan Shapiro proposed five levels from "spicy autocomplete" (0) through "coding intern", "junior developer", "developer", and "engineering team" to the "dark software factory" (5) (<a href="https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/">post, 2026-01-23</a>). Simon Willison summarized it on 2026-01-28 (<a href="https://simonwillison.net/2026/Jan/28/the-five-levels/">link</a>) and described a team where nobody reviews AI-written code and humans design the system that proves the software works. He later identified it as StrongDM's AI team (<a href="https://simonwillison.net/2026/Feb/7/software-factory/">2026-02-07</a>), whose public description is its <a href="https://factory.strongdm.ai/">Software Factory page</a>.</li>
+<li>Evidence: demo or claim for Level 5, plus a practitioner report from Willison, who saw a demo and found it convincing. No independent evaluation was found.</li>
+<li>Counterpoint: Willison asks how you prove software works when agents write both code and tests. The <a href="https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/">Stanford CodeX analysis</a> (2026-02-08, an opinion and legal-risk piece) argues agents optimize for passing tests, reports the team's agents once wrote code that returned true to pass them, and raises accountability when no human reviews code. The team's own "at least $1,000 of tokens per day per engineer" is a company statement about cost, not a measurement.</li>
+<li>Why it matters here: it is a maturity model for one domain, which makes it a good worked example for episodes 9 and 10. It also shows the risk of treating the top rung as the goal.</li>
+<li>Generalist question: what is the cost of a wrong output in your work, and what proves correctness when you stop reading it?</li>
+<li>Series link: episodes 9 and 10, advanced companion.</li>
+</ul>
+<h3>4. Agent memory and second brains</h3>
+<ul>
+<li>What people try: give agents persistent notes (files, wikis, graphs) so they improve across sessions. 2026 research papers explore graph-based and brain-inspired agent memory designs (for example MAGMA and BMAM at ACL 2026, and a September 2026 preprint on agentic memory). Wanderloots discusses whether agents need a separate vault from the human's own notes.</li>
+<li>Evidence: academic papers present benchmark results on their own setups; whether they transfer to everyday use is unproven. The vault question is a practitioner discussion.</li>
+<li>Counterpoint: more memory can mean more stale or wrong memory. Privacy and separation of personal vs agent notes are real design choices.</li>
+<li>Series link: episode 8, companion page.</li>
+</ul>
+<h3>5. Using what already exists ("capability overhang")</h3>
+<ul>
+<li>What people try: Mollick's September 2026 post argues that current models can do much more than people use them for, and gives examples of long, multi-step projects done with AI. His examples are demonstrations from one author.</li>
+<li>Evidence: practitioner report. Model names and capability claims in it come from the post and were not independently checked here.</li>
+<li>Counterpoint: striking demos are chosen by the person showing them. Ask how often it works on ordinary tasks.</li>
+<li>Generalist question: what is one task you have not tried with current tools?</li>
+</ul>
+<h3>6. The flat-file second brain (shared by Blade, 2026-10-04)</h3>
+<ul>
+<li>What people try: a "second brain" built from plain Markdown files in a few folders, with one root index file that tells an AI agent where things live and how to read them. The post's rules: one topic per file, name files for their topic, keep names consistent, and start small. Source: <a href="https://x.com/Bober_smart/status/2078784709253841039">"Claude Second Brain &amp; Folder Workflow: The Complete Guide"</a> by @Bober_smart, posted 2026-07-19. Read through a public mirror, so the images and code examples in the post were not seen; this page summarizes the text only and does not reproduce it.</li>
+<li>Evidence: practitioner how-to. No tests or measurements are given. The author describes themselves as an on-chain analyst, not an AI or knowledge-management specialist.</li>
+<li>Counterpoint: the post claims the agent will report a missing answer rather than invent one. That is a claim, not a result. An index file is a map, not a maintenance process: nothing in the text covers staleness, contradictions, or review. Index-led navigation suits small collections; Karpathy's note says the same about moderate scale. Popularity (views and bookmarks on a mirror) is not evidence of quality.</li>
+<li>Why include it: it is the simplest rung of the knowledge ladder and shows the core idea of items 1 and 4 without tools.</li>
+<li>Generalist question: who keeps the map current, and how would you notice it was wrong?</li>
+<li>Series link: episode 5, companion page, beginner on-ramp.</li>
+</ul>
+<h2 id="how-to-read-this-section">How to read this section</h2>
+<ol>
+<li>Find the evidence label first.</li>
+<li>Ask what the author sells or benefits from.</li>
+<li>Look for the counterpoint before you try the idea.</li>
+<li>Try one small, reversible experiment.</li>
+</ol>
+<h2 id="maintenance-proposed-not-scheduled">Maintenance (proposed, not scheduled)</h2>
+<ul>
+<li>Review monthly: re-check each linked source, add an "as of" date, move items between evidence levels, retire dead ones.</li>
+<li>Re-verify any claim before it goes into a script. Every episode script carries its source check date.</li>
+<li>Changes land as small, reviewable commits; nothing auto-publishes.</li>
+</ul></article></main>
+<footer><div class="wrap">Plain-language companions to an AI learning podcast series. Evidence is labeled; vendor and practitioner claims are not treated as measurements. Fictional examples are marked.</div></footer>
+</body></html>
