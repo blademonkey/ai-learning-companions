@@ -1,0 +1,137 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4. Retrieval-augmented generation | AI Learning Companions</title><meta name="description" content="Companion pages for an AI learning podcast series: key terms, comparisons, worked scenarios, quizzes and sources.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="beam"></span>AI Learning Companions</a><button class="menu" aria-label="Menu" onclick="document.body.classList.toggle('open')">Menu</button><nav><a href="index.html">Home</a><a href="ep1.html">Ep 1</a><a href="ep2.html">Ep 2</a><a href="ep3.html">Ep 3</a><a href="ep4.html" aria-current="page">Ep 4</a><a href="ep5.html">Ep 5</a><a href="advanced.html">Advanced concepts</a><a href="emerging.html">Emerging concepts</a><a href="comparison.html">Comparison</a></nav></div></header>
+<main class="wrap layout"><aside class="toc"><b>On this page</b><a href="#the-idea-in-one-paragraph">The idea in one paragraph</a><a href="#the-pipeline-in-four-steps">The pipeline in four steps</a><a href="#six-weak-points-and-what-fixes-them">Six weak points and what fixes them</a><a href="#head-to-head-ways-to-give-a-model-your-knowledge">Head-to-head: ways to give a model your knowledge</a><a href="#worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</a><a href="#generalist-decision-card-four-questions-for-anyone-proposing-rag">Generalist decision card: four questions for anyone proposing RAG</a><a href="#counterpoints-and-limits">Counterpoints and limits</a><a href="#try-it-no-code">Try it (no code)</a><a href="#quiz">Quiz</a><a href="#maturity-thread">Maturity thread</a><a href="#sources-and-further-reading">Sources and further reading</a></aside><article><h1>Companion 4: Retrieval-augmented generation (RAG)</h1>
+<p>Companion to episode 4 of the series. Read it before or after the episode. It repeats the ideas in a form you can scan, compare and test.</p>
+<h2 id="the-idea-in-one-paragraph">The idea in one paragraph</h2>
+<p>RAG fetches the right pages from your documents and puts them on the model's desk before it answers. The 2020 paper by Lewis and colleagues combined a language model with a separate searchable collection. Most RAG failures are about the library, the chunking, the search and the question, not the language model. That makes them reasoning problems a generalist can follow.</p>
+<h2 id="the-pipeline-in-four-steps">The pipeline in four steps</h2>
+<ol>
+<li>Prepare: split documents into chunks (a few paragraphs each).</li>
+<li>Index: turn each chunk into an embedding (a numeric fingerprint of its meaning) and store it in a vector database.</li>
+<li>Retrieve: fingerprint the question and take the closest chunks.</li>
+<li>Generate: the model answers from the question, the chunks and instructions such as "use only this material and say if the answer is missing".</li>
+</ol>
+<h2 id="six-weak-points-and-what-fixes-them">Six weak points and what fixes them</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Weak point</th>
+<th>Example</th>
+<th>Common fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Knowledge not in the library</td>
+<td>Scanned image nobody could read</td>
+<td>Fix the library (see companion 3)</td>
+</tr>
+<tr>
+<td>Chunking cuts meaning</td>
+<td>"The penalty is 5 percent." Which penalty?</td>
+<td>Chunk at natural boundaries; add context to chunks</td>
+</tr>
+<tr>
+<td>Similar is not relevant</td>
+<td>Closest text is the wrong client's</td>
+<td>Metadata filters; hybrid search; reranking</td>
+</tr>
+<tr>
+<td>Wrong number of pieces</td>
+<td>Too few miss it; too many flood the desk</td>
+<td>Tune, and test</td>
+</tr>
+<tr>
+<td>Model ignores or misuses chunks</td>
+<td>Blends in its own memory</td>
+<td>Instructions plus checking</td>
+</tr>
+<tr>
+<td>Questions about the whole library</td>
+<td>"Where do our policies contradict each other?"</td>
+<td>Compiled knowledge or graph approaches (companion 5, later episodes)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="head-to-head-ways-to-give-a-model-your-knowledge">Head-to-head: ways to give a model your knowledge</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Paste it in</th>
+<th>RAG</th>
+<th>Compiled knowledge</th>
+<th>Knowledge graph</th>
+<th>Fine-tuning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Best for</td>
+<td>A few documents</td>
+<td>Large collections, look-ups, cited answers</td>
+<td>Synthesis and comparisons over a growing set</td>
+<td>Questions about connections and themes</td>
+<td>Style and task skill</td>
+</tr>
+<tr>
+<td>Weak at</td>
+<td>Large or changing sets</td>
+<td>Whole-collection questions</td>
+<td>Needs review of what the model writes</td>
+<td>Setup</td>
+<td>Facts that change (retrain to update)</td>
+</tr>
+<tr>
+<td>Setup</td>
+<td>Almost none</td>
+<td>Moderate to high</td>
+<td>Moderate</td>
+<td>High</td>
+<td>High</td>
+</tr>
+</tbody>
+</table></div>
+<p>Decided by: size of collection, type of question, how often things change, and how much traceability you need.</p>
+<h2 id="worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</h2>
+<p>An accounting firm asks, "What is the penalty for late filing for Hendricks?" The search returns a chunk about a different client with a similar clause. Fixes in order: tag documents by client and filter to Hendricks first, add each chunk's origin to its text, then test with thirty real questions with known answers. The thirty-question test is an illustration, not a sourced benchmark.</p>
+<h2 id="generalist-decision-card-four-questions-for-anyone-proposing-rag">Generalist decision card: four questions for anyone proposing RAG</h2>
+<ol>
+<li>What is the library, who owns it and how does it stay current?</li>
+<li>Will people ask look-ups or whole-collection questions? If both, what is the plan for the second?</li>
+<li>How will it be tested? Ask to see the real questions and the scores.</li>
+<li>What happens when it is wrong? Who sees the answer and what check comes before action?
+Warning sign: a demo with no evaluation set.</li>
+</ol>
+<h2 id="counterpoints-and-limits">Counterpoints and limits</h2>
+<ul>
+<li>Anthropic reports large reductions in failed retrievals from its Contextual Retrieval method (49% and 67% figures). These are the company's own reported results on specific datasets. Do not read them as a general guarantee.</li>
+<li>Plain RAG is weak for whole-collection questions. GraphRAG (Edge et al.) was proposed for query-focused summarization over a whole corpus, and has its own setup cost.</li>
+<li>Some practitioners argue that for moderate collections, structured notes read directly can replace embedding search. Karpathy's LLM Wiki note says this from his own experience, not from a controlled test.</li>
+</ul>
+<h2 id="try-it-no-code">Try it (no code)</h2>
+<p>List your documents, name an owner, write 20 real questions with known answers, and decide the chunk boundary (section headings). Test any tool against the 20 questions before trusting it.</p>
+<h2 id="quiz">Quiz</h2>
+<ol>
+<li>What does RAG add to the model's desk?</li>
+<li>What is an embedding?</li>
+<li>Why can "closest in meaning" still return the wrong passage?</li>
+<li>Which kind of question is hardest for plain RAG?</li>
+<li>What is the most important and most neglected improvement?</li>
+</ol>
+<details class="answers"><summary>Show answers</summary><p>1. Retrieved chunks from your documents. 2. A numeric fingerprint of a chunk's meaning. 3. Close in meaning is not the same as answering the question (wrong client, wrong clause). 4. Questions about the whole collection. 5. An evaluation set of real questions with known answers.</p></details>
+<h2 id="maturity-thread">Maturity thread</h2>
+<p>Demo-driven (improvised) to tested and owned library (defined) to measured accuracy over time (quantitatively managed).</p>
+<h2 id="sources-and-further-reading">Sources and further reading</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2005.11401">Lewis et al., Retrieval-Augmented Generation (2020)</a></li>
+<li><a href="https://www.anthropic.com/news/contextual-retrieval">Anthropic, Introducing Contextual Retrieval</a> (vendor-reported results)</li>
+<li><a href="https://arxiv.org/abs/2404.16130">Edge et al., From Local to Global: A GraphRAG Approach</a></li>
+<li><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy, LLM Wiki</a></li>
+<li><a href="https://arxiv.org/abs/2307.03172">Liu et al., Lost in the Middle</a></li>
+</ul>
+<p>Previous: <a href="ep3.html">Companion 3</a>. Next: <a href="ep5.html">Companion 5</a>.</p></article></main>
+<footer><div class="wrap">Plain-language companions to an AI learning podcast series. Evidence is labeled; vendor and practitioner claims are not treated as measurements. Fictional examples are marked.</div></footer>
+</body></html>
