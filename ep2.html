@@ -1,0 +1,149 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2. How models work and fail | AI Learning Companions</title><meta name="description" content="Companion pages for an AI learning podcast series: key terms, comparisons, worked scenarios, quizzes and sources.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="beam"></span>AI Learning Companions</a><button class="menu" aria-label="Menu" onclick="document.body.classList.toggle('open')">Menu</button><nav><a href="index.html">Home</a><a href="ep1.html">Ep 1</a><a href="ep2.html" aria-current="page">Ep 2</a><a href="ep3.html">Ep 3</a><a href="ep4.html">Ep 4</a><a href="ep5.html">Ep 5</a><a href="advanced.html">Advanced concepts</a><a href="emerging.html">Emerging concepts</a><a href="comparison.html">Comparison</a></nav></div></header>
+<main class="wrap layout"><aside class="toc"><b>On this page</b><a href="#the-idea-in-one-paragraph">The idea in one paragraph</a><a href="#key-terms">Key terms</a><a href="#the-five-failures-and-the-one-line-fix">The five failures and the one-line fix</a><a href="#head-to-head-three-answers-to-models-fail-so-what">Head-to-head: three answers to &quot;models fail, so what?&quot;</a><a href="#worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</a><a href="#generalist-decision-card">Generalist decision card</a><a href="#counterpoints-and-limits">Counterpoints and limits</a><a href="#try-it-5-minutes">Try it (5 minutes)</a><a href="#quiz">Quiz</a><a href="#maturity-thread">Maturity thread</a><a href="#sources-and-further-reading">Sources and further reading</a></aside><article><h1>Companion 2: How models work and fail</h1>
+<p>Companion to episode 2 of the series. Read it before or after the episode. It repeats the ideas in a form you can scan, compare and test.</p>
+<h2 id="the-idea-in-one-paragraph">The idea in one paragraph</h2>
+<p>Four ideas explain most behavior: tokens, next-token prediction, a fixed snapshot of knowledge, and a context window. Five failures follow predictably: confident invention, a forgotten middle, a stale snapshot, instability, and a drifting conversation. Each has a cheap response. The skill that ties them together is context engineering: deciding what goes on the desk.</p>
+<h2 id="key-terms">Key terms</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Token</td>
+<td>A chunk of text. Limits and prices are usually counted in tokens, not words.</td>
+</tr>
+<tr>
+<td>Context window</td>
+<td>The maximum bundle of text the model can use at once.</td>
+</tr>
+<tr>
+<td>Compaction</td>
+<td>Summarizing a long conversation and starting a new window with the summary. Risk: dropping details whose importance appears later.</td>
+</tr>
+<tr>
+<td>Context engineering</td>
+<td>Designing everything on the desk: instructions, documents, tool results, history, memory. Wider than prompt wording.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-five-failures-and-the-one-line-fix">The five failures and the one-line fix</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Failure</th>
+<th>What you see</th>
+<th>Cheap response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Confident invention</td>
+<td>Specific, fluent, wrong quotes or citations, worst on rare, recent or private facts</td>
+<td>Ask for sources, open them</td>
+</tr>
+<tr>
+<td>Forgotten middle</td>
+<td>Fact buried in a long paste is missed</td>
+<td>Put key material first or last; trim the rest</td>
+</tr>
+<tr>
+<td>Stale snapshot</td>
+<td>Outdated answers with no warning</td>
+<td>Turn search on; compare</td>
+</tr>
+<tr>
+<td>Instability</td>
+<td>Different answers to the same question</td>
+<td>Ask more than once; trust what stays constant</td>
+</tr>
+<tr>
+<td>Drifting conversation</td>
+<td>Early instructions fade</td>
+<td>Start fresh with a short summary</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="head-to-head-three-answers-to-models-fail-so-what">Head-to-head: three answers to "models fail, so what?"</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Wait for a bigger model</th>
+<th>Use a longer window</th>
+<th>Give better inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Helps most with</td>
+<td>General knowledge, reasoning quality</td>
+<td>Small, stable material, fast start</td>
+<td>Large or changing material, traceable answers</td>
+</tr>
+<tr>
+<td>Does not fix</td>
+<td>Your private facts that no public model has seen</td>
+<td>Cost, and the middle problem</td>
+<td>Weak reasoning in the model itself</td>
+</tr>
+<tr>
+<td>Effort</td>
+<td>None</td>
+<td>Low</td>
+<td>Moderate and ongoing</td>
+</tr>
+<tr>
+<td>Fits when your main risk is</td>
+<td>Reasoning quality</td>
+<td>Convenience</td>
+<td>Missing knowledge</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are not strict rivals. Organizations use all three. The choice is about where your main risk lies.</p>
+<h2 id="worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</h2>
+<p>A manager pastes a 60-page report and asks for the one deadline that changed. The assistant misses it, because it sits mid-document. She moves the relevant section to the top with a two-line brief and tells the model to say so if the answer is absent. The answer is right and quotable. Lesson: the model was not stupid; the desk was messy.</p>
+<h2 id="generalist-decision-card">Generalist decision card</h2>
+<ol>
+<li>What does the model need to know that it cannot already know?</li>
+<li>Is that on the desk in clean form?</li>
+<li>What should it do if the answer is absent?</li>
+<li>Which one claim will I verify?</li>
+</ol>
+<h2 id="counterpoints-and-limits">Counterpoints and limits</h2>
+<ul>
+<li>The "Lost in the Middle" findings come from models tested in 2023. Newer models may behave differently. Re-test with your own material.</li>
+<li>Statements about randomness settings in chat products are general knowledge and vary by product.</li>
+<li>Context engineering can be a rebrand of prompt engineering. Ask what changed in practice.</li>
+</ul>
+<h2 id="try-it-5-minutes">Try it (5 minutes)</h2>
+<p>Hide one odd fact in the middle of a long article and ask about it. Move it to the start and ask again. Compare.</p>
+<h2 id="quiz">Quiz</h2>
+<ol>
+<li>What are limits and prices usually counted in?</li>
+<li>Why can a bigger window still miss a fact?</li>
+<li>Name two of the five failures and their fixes.</li>
+<li>Prompt engineering vs context engineering: what is the difference?</li>
+<li>When is a longer window the simplest good choice?</li>
+</ol>
+<details class="answers"><summary>Show answers</summary><p>1. Tokens. 2. Models often use the start and end of long inputs better than the middle. 3. See table. 4. Wording the request vs everything on the desk. 5. One contract or one report, small and stable.</p></details>
+<h2 id="maturity-thread">Maturity thread</h2>
+<p>Oracle use (ask, accept) to desk-aware use to repeatable briefs to systems that supply context automatically.</p>
+<h2 id="sources-and-further-reading">Sources and further reading</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2307.03172">Lost in the Middle (Liu et al.)</a></li>
+<li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering for AI agents (2025-09-29)</a></li>
+<li><a href="https://www.langchain.com/blog/the-rise-of-context-engineering">Harrison Chase, The rise of context engineering (2025-06-23)</a></li>
+<li><a href="https://arxiv.org/abs/2311.05232">A Survey on Hallucination in LLMs</a></li>
+<li><a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners</a></li>
+</ul>
+<p>Previous: <a href="ep1.html">Companion 1</a>. Next: <a href="ep3.html">Companion 3</a>.</p></article></main>
+<footer><div class="wrap">Plain-language companions to an AI learning podcast series. Evidence is labeled; vendor and practitioner claims are not treated as measurements. Fictional examples are marked.</div></footer>
+</body></html>
