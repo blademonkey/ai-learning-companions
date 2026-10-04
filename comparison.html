@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comparison: flat files vs scoped vault | AI Learning Companions</title><meta name="description" content="Companion pages for an AI learning podcast series: key terms, comparisons, worked scenarios, quizzes and sources.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="beam"></span>AI Learning Companions</a><button class="menu" aria-label="Menu" onclick="document.body.classList.toggle('open')">Menu</button><nav><a href="index.html">Home</a><a href="ep1.html">Ep 1</a><a href="ep2.html">Ep 2</a><a href="ep3.html">Ep 3</a><a href="ep4.html">Ep 4</a><a href="ep5.html">Ep 5</a><a href="advanced.html">Advanced concepts</a><a href="emerging.html">Emerging concepts</a><a href="comparison.html" aria-current="page">Comparison</a></nav></div></header>
+<main class="wrap layout"><aside class="toc"><b>On this page</b><a href="#which-sources-this-compares">Which sources this compares</a><a href="#what-each-says-claims-as-stated">What each says (claims, as stated)</a><a href="#evidence">Evidence</a><a href="#tradeoffs">Tradeoffs</a><a href="#gaps-in-both">Gaps in both</a><a href="#overlap">Overlap</a><a href="#generalist-questions">Generalist questions</a><a href="#series-link">Series link</a></aside><article><h1>Comparison: flat-file second brain vs Wanderloots' scoped-vault approach</h1>
+<p>Last checked 2026-10-04. Neutral comparison for the series' knowledge-management arc. Not a recommendation.</p>
+<h2 id="which-sources-this-compares">Which sources this compares</h2>
+<ul>
+<li><strong>A. "Claude Second Brain &amp; Folder Workflow: The Complete Guide"</strong>, @Bober_smart, X article, 2026-07-19. Read the article text through a public mirror; images and two code examples were not available. <a href="https://x.com/Bober_smart/status/2078784709253841039">Post</a></li>
+<li><strong>B. Wanderloots, "Do I NEED A Separate Agent Vault? Hermes + Obsidian Tutorial"</strong>, Patreon post, 2026-07-23. Read the public text of the post. The video it accompanies was not watched, and the post text had a truncated tail. <a href="https://www.patreon.com/wanderloots/posts/do-i-need-agent-164633727">Post</a></li>
+</ul>
+<p>"Wanderloots' insight" was not named more precisely, so B is a best match, not a certainty. Other Wanderloots material exists and would give a different slice: "Why LLM Wiki?" (YouTube, 2026-05-04), "How To Build LLM Wiki In Obsidian?" (2026-06-04), "What Is An Agentic Librarian?" (2026-08-29), and a Patreon note on agentic memory. Ask which one was meant if the comparison should change.</p>
+<h2 id="what-each-says-claims-as-stated">What each says (claims, as stated)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>A. Flat-file second brain</th>
+<th>B. Scoped vault with three access levels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core idea</td>
+<td>A second brain is plain Markdown files in a few folders, with one root index file that tells the agent where to look</td>
+<td>One Obsidian vault with a human view and an agent view; control what the agent can see or change</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>Folders such as notes, people, projects; root files for memory, learnings, decisions; one topic per file</td>
+<td>Three access levels: private (agent cannot see), read-only, read and write</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>Any text editor and an agent that reads a folder; explicitly "no Obsidian, databases, or apps"</td>
+<td>Obsidian plus an agent (Hermes shown; the post says the scoping idea applies to other agents)</td>
+</tr>
+<tr>
+<td>Who maintains it</td>
+<td>The user keeps the structure clean; the agent retrieves</td>
+<td>Agent works freely in some notes, references others without editing, never sees private ones; LLM Wiki raw files can be protected at system level (Docker, per the post)</td>
+</tr>
+<tr>
+<td>Main worry addressed</td>
+<td>Making notes easy for an agent to navigate</td>
+<td>Not giving an agent access to every note</td>
+</tr>
+<tr>
+<td>Memory vs knowledge</td>
+<td>Root files hold long-term memory and decisions alongside notes</td>
+<td>Separates knowledge ("a library") from agentic memory ("instructions to the librarian") as two layers of one memory stack</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>A single root index is the map</td>
+<td>Not the focus of the post text read</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="evidence">Evidence</h2>
+<ul>
+<li>A: no tests, benchmarks, or measurements in the text read. Claim that the agent reports a gap instead of inventing an answer is stated, not demonstrated. Author's bio: on-chain analyst. Popularity numbers come from a mirror and are not evidence of quality.</li>
+<li>B: a tutorial based on the creator's own setup and a video demonstration; no independent evaluation seen. The creator is a long-running Obsidian and AI-workflow educator. The post itself says "it depends".</li>
+</ul>
+<h2 id="tradeoffs">Tradeoffs</h2>
+<p><strong>Where A is stronger</strong>
+- Very low setup cost; works in minutes with any editor.
+- Easy to understand and to move between tools.
+- Small collections need no extra infrastructure.</p>
+<p><strong>Where B is stronger</strong>
+- Addresses privacy and safety directly: what the agent can see, and what it can change.
+- Keeps raw sources safe from agent edits through enforced limits rather than trust.
+- Separates stable knowledge from the agent's working memory, which helps when notes and agent state would otherwise mix.</p>
+<p><strong>Where each costs more</strong>
+- A: gives an agent broad reach into whatever sits in the folders unless the user manages that separately. The text read does not discuss access limits.
+- B: more setup and more concepts to learn (access levels, vault views, system-level controls); depends on one app for the human side.</p>
+<h2 id="gaps-in-both">Gaps in both</h2>
+<ul>
+<li>Neither source, as read, gives measured results on answer accuracy.</li>
+<li>Neither covers contradictions between notes or how stale entries are caught, beyond the user's own discipline. Karpathy's LLM Wiki note adds a "lint" step for this, which is a separate source.</li>
+<li>Both rely on the user to decide what goes in.</li>
+</ul>
+<h2 id="overlap">Overlap</h2>
+<p>Both treat plain Markdown files as the base. Both put a human in charge of what the agent can use. They address different questions: A asks how to organize notes so an agent can find them; B asks how to limit what an agent may touch. They can be combined.</p>
+<h2 id="generalist-questions">Generalist questions</h2>
+<ol>
+<li>Do you need your agent to be able to see everything, or should some notes stay private?</li>
+<li>Who is checking that the notes are accurate and current?</li>
+<li>What would a wrong or invented answer cost you?</li>
+<li>How much setup are you willing to maintain?</li>
+</ol>
+<h2 id="series-link">Series link</h2>
+<p>Episode 5 (compiled knowledge), the companion page on second brains, and the maturity thread: a flat index is an early rung, scoped access and review are later rungs.</p></article></main>
+<footer><div class="wrap">Plain-language companions to an AI learning podcast series. Evidence is labeled; vendor and practitioner claims are not treated as measurements. Fictional examples are marked.</div></footer>
+</body></html>
