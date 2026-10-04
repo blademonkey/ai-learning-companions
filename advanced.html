@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Advanced concepts | AI Learning Companions</title><meta name="description" content="Companion pages for an AI learning podcast series: key terms, comparisons, worked scenarios, quizzes and sources.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="beam"></span>AI Learning Companions</a><button class="menu" aria-label="Menu" onclick="document.body.classList.toggle('open')">Menu</button><nav><a href="index.html">Home</a><a href="ep1.html">Ep 1</a><a href="ep2.html">Ep 2</a><a href="ep3.html">Ep 3</a><a href="ep4.html">Ep 4</a><a href="ep5.html">Ep 5</a><a href="advanced.html" aria-current="page">Advanced concepts</a><a href="emerging.html">Emerging concepts</a><a href="comparison.html">Comparison</a></nav></div></header>
+<main class="wrap layout"><aside class="toc"><b>On this page</b><a href="#how-to-use-this-page">How to use this page</a><a href="#1-the-compiled-wiki">1. The compiled wiki</a><a href="#2-second-brains-flat-files-versus-scoped-vaults">2. Second brains: flat files versus scoped vaults</a><a href="#3-context-engineering">3. Context engineering</a><a href="#4-agent-memory">4. Agent memory</a><a href="#5-the-software-factory-and-five-levels-of-ai-assisted-coding">5. The software factory and five levels of AI-assisted coding</a><a href="#6-capability-overhang">6. Capability overhang</a><a href="#reading-rules">Reading rules</a><a href="#where-these-sit-on-the-maturity-ladder">Where these sit on the maturity ladder</a><a href="#sources">Sources</a></aside><article><h1>Advanced concepts companion: LLM wikis, second brains, context engineering and software factories</h1>
+<p>Pairs with <a href="emerging.html">emerging concepts</a> (the dated, evidence-labeled list) and with companions <a href="ep2.html">2</a>, <a href="ep5.html">5</a>. Public pages and primary posts only; no X account was used. The software-factory section was re-checked against its primary pages on 2026-10-04.</p>
+<h2 id="how-to-use-this-page">How to use this page</h2>
+<p>For each concept: what it is, how strong the evidence is, the best counterpoint, the question to ask, and a small reversible experiment. Evidence labels: evaluated, practitioner report, demo or claim, framework.</p>
+<h2 id="1-the-compiled-wiki">1. The compiled wiki</h2>
+<ul>
+<li>What it is: an LLM builds and maintains a linked set of notes between you and your raw sources (Karpathy's note: raw sources, wiki, schema; ingest, query, lint).</li>
+<li>Evidence: framework plus practitioner description; Perplexity's post is a vendor report about its own product.</li>
+<li>Counterpoint: the index approach is described at moderate scale; errors can compound without spot checks. No controlled comparison with retrieval was found.</li>
+<li>Ask: who is accountable for accuracy, and how often is it linted?</li>
+<li>Experiment: ten shareable sources, a read-only source folder, a one-page rule file, spot-check three pages.</li>
+</ul>
+<h2 id="2-second-brains-flat-files-versus-scoped-vaults">2. Second brains: flat files versus scoped vaults</h2>
+<ul>
+<li>What it is: a "second brain" for an agent. The flat-file version is Markdown folders with one root index file. The scoped-vault version separates what the agent cannot see, can only read, and can change.</li>
+<li>Evidence: both are practitioner material with no measurements seen. See the <a href="comparison.html">side-by-side comparison</a>.</li>
+<li>Counterpoint: an index is a map, not a maintenance process; scoped access adds setup and depends on one app.</li>
+<li>Ask: should the agent see everything, and who checks accuracy?</li>
+<li>Experiment: start with five files and an index; add access limits before adding anything private.</li>
+</ul>
+<h2 id="3-context-engineering">3. Context engineering</h2>
+<ul>
+<li>What it is: designing everything the model sees, not only the prompt wording. Chase's June 2025 definition: "building dynamic systems to provide the right information and tools in the right format". Anthropic frames it as curating the best set of tokens during a run.</li>
+<li>Evidence: practitioner framework, widely adopted as a term, no single benchmark.</li>
+<li>Counterpoint: can be a rebrand of prompt engineering; ask what changed in practice.</li>
+<li>Ask: what is on the desk, who decided, and what happens when the answer is absent?</li>
+<li>Experiment: write a one-paragraph standard brief for a recurring task and compare outputs with and without it.</li>
+</ul>
+<h2 id="4-agent-memory">4. Agent memory</h2>
+<ul>
+<li>What it is: persistent notes (files, wikis, graphs) so an agent improves across sessions. Research papers in 2026 explore graph-based and brain-inspired memory designs.</li>
+<li>Evidence: academic benchmark results on their own setups; transfer to everyday use unproven.</li>
+<li>Counterpoint: more memory can mean more stale or wrong memory; personal and agent notes need separation.</li>
+<li>Ask: can you read, correct and delete what it remembers?</li>
+<li>Experiment: find out how a product's memory works (a stored note you can edit, or just recent chat?).</li>
+</ul>
+<h2 id="5-the-software-factory-and-five-levels-of-ai-assisted-coding">5. The software factory and five levels of AI-assisted coding</h2>
+<ul>
+<li>What it is: Dan Shapiro's five levels of AI-assisted programming, from "spicy autocomplete" (0) through the coding intern, junior developer and developer to the engineering team (4) and the "dark software factory" (5). Level 5 is, in Shapiro's words, "a black box that turns specs into software", and he says he knows a handful of small teams (under five people) doing it. <a href="https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/">Shapiro's post</a> (2026-01-23); <a href="https://simonwillison.net/2026/Jan/28/the-five-levels/">Willison's summary</a> (2026-01-28).</li>
+<li>The reported example: Simon Willison saw a demo from a StrongDM team that follows this pattern. Nobody reviews AI-written code, the system's goal is to prove the software works, and humans design that system. In its <a href="https://factory.strongdm.ai/">public description</a> the team states two rules, "Code must not be written by humans" and "Code must not be reviewed by humans", and says its method relies on written end-to-end "scenarios" kept outside the code agents can see, plus simulated copies of the third-party services the software depends on. <a href="https://simonwillison.net/2026/Feb/7/software-factory/">Willison's account</a> (2026-02-07).</li>
+<li>Evidence: Level 5 is a demo and claim by the team, plus a practitioner report from Willison, who says the work "looked very convincing" and that some team members had 20+ years of experience on high-reliability systems. No independent evaluation was found.</li>
+<li>Counterpoints:</li>
+<li>Willison asks how anyone can prove software works when agents write both the code and the tests, and notes tests only help if agents do not cheat with something like <code>assert true</code>.</li>
+<li>The <a href="https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/">Stanford CodeX analysis</a> (Eran Kahana, 2026-02-08) is an opinion and legal-risk piece. It argues that agents optimize for passing tests, reports that the team's agents once wrote code that returned true to pass tests, and raises who is accountable when no human reviewed the code or wrote the tests. It also notes that the team's satisfaction measure is judged by AI.</li>
+<li>Cost: the team's own rule of thumb is at least $1,000 on tokens per day per human engineer. Willison notes that at that level it becomes a business-model question, and hopes the patterns work at much lower spend. This is a company statement, not a measured cost.</li>
+<li>Why it matters: it is a maturity model for one domain, a good worked example for the maturity episodes, and a warning against treating the top rung as the goal.</li>
+<li>Ask: what does a wrong output cost in my work, and what proves correctness once I stop reading it?</li>
+<li>Experiment: take one task you review by hand today and write down which automated check would convince you it was right, and who would be accountable if it was not.</li>
+</ul>
+<h2 id="6-capability-overhang">6. Capability overhang</h2>
+<ul>
+<li>What it is: the claim that current models can do much more than people use them for (Mollick, September 2026).</li>
+<li>Evidence: practitioner report from demonstrations by one author. Model names and capability claims in that post were not independently checked, and none are repeated here.</li>
+<li>Counterpoint: demos are chosen by the person showing them. Ask how often it works on ordinary tasks.</li>
+<li>Experiment: try one task you have not tried with current tools, and note the failure rate.</li>
+</ul>
+<h2 id="reading-rules">Reading rules</h2>
+<ol>
+<li>Find the evidence label first. 2. Ask what the author sells or benefits from. 3. Find the counterpoint before trying the idea. 4. Run one small, reversible experiment.</li>
+</ol>
+<h2 id="where-these-sit-on-the-maturity-ladder">Where these sit on the maturity ladder</h2>
+<p>Ad hoc use, then a repeatable brief, then a standard shared practice, then measured results, then continuous improvement. Every concept above is a way to climb one rung in one domain; none removes the need for review where a wrong output is costly.</p>
+<h2 id="sources">Sources</h2>
+<p>See <a href="emerging.html">emerging concepts</a> for the full source list and who to watch, plus:
+- <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy, LLM Wiki</a>
+- <a href="https://www.langchain.com/blog/the-rise-of-context-engineering">Harrison Chase, The rise of context engineering</a>
+- <a href="https://www.ycombinator.com/library/MW-andrej-karpathy-software-is-changing-again">Karpathy, Software Is Changing (Again)</a>
+- <a href="https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/">Shapiro, The Five Levels</a>, <a href="https://factory.strongdm.ai/">StrongDM Software Factory</a>, <a href="https://simonwillison.net/2026/Feb/7/software-factory/">Willison on the factory</a>, <a href="https://law.stanford.edu/2026/02/08/built-by-agents-tested-by-agents-trusted-by-whom/">Stanford CodeX analysis</a>
+- <a href="https://simonwillison.net/">Simon Willison</a> and <a href="https://www.oneusefulthing.org/">One Useful Thing (Mollick)</a>
+- Flat-file second brain article via <a href="https://x.com/Bober_smart/status/2078784709253841039">public mirror</a></p>
+<p>Previous: <a href="ep5.html">Companion 5</a>.</p></article></main>
+<footer><div class="wrap">Plain-language companions to an AI learning podcast series. Evidence is labeled; vendor and practitioner claims are not treated as measurements. Fictional examples are marked.</div></footer>
+</body></html>
