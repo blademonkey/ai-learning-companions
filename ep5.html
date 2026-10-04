@@ -1,0 +1,133 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5. Compiled knowledge and the LLM wiki | AI Learning Companions</title><meta name="description" content="Companion pages for an AI learning podcast series: key terms, comparisons, worked scenarios, quizzes and sources.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="beam"></span>AI Learning Companions</a><button class="menu" aria-label="Menu" onclick="document.body.classList.toggle('open')">Menu</button><nav><a href="index.html">Home</a><a href="ep1.html">Ep 1</a><a href="ep2.html">Ep 2</a><a href="ep3.html">Ep 3</a><a href="ep4.html">Ep 4</a><a href="ep5.html" aria-current="page">Ep 5</a><a href="advanced.html">Advanced concepts</a><a href="emerging.html">Emerging concepts</a><a href="comparison.html">Comparison</a></nav></div></header>
+<main class="wrap layout"><aside class="toc"><b>On this page</b><a href="#the-idea-in-one-paragraph">The idea in one paragraph</a><a href="#evidence-labels">Evidence labels</a><a href="#head-to-head-four-approaches-five-dimensions">Head-to-head: four approaches, five dimensions</a><a href="#where-compiled-knowledge-fails">Where compiled knowledge fails</a><a href="#worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</a><a href="#generalist-decision-card-five-questions-before-building-one">Generalist decision card: five questions before building one</a><a href="#counterpoints-and-limits">Counterpoints and limits</a><a href="#try-it-one-afternoon">Try it (one afternoon)</a><a href="#quiz">Quiz</a><a href="#maturity-thread">Maturity thread</a><a href="#sources-and-further-reading">Sources and further reading</a></aside><article><h1>Companion 5: Compiled knowledge, the LLM wiki, and how it compares</h1>
+<p>Companion to episode 5 of the series. Read it before or after the episode. It repeats the ideas in a form you can scan, compare and test.</p>
+<h2 id="the-idea-in-one-paragraph">The idea in one paragraph</h2>
+<p>Instead of searching raw documents on every question, have an AI read sources once and maintain a linked set of notes between you and the raw material. Karpathy's public note describes three layers (raw sources that are never edited, a model-written wiki, and a schema file of rules), three operations (ingest, query, lint) and two helper files (an index and a log). This is automated "combination" from SECI (companion 3), with a human steering.</p>
+<h2 id="evidence-labels">Evidence labels</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Karpathy, LLM Wiki note</td>
+<td>Framework and practitioner description</td>
+</tr>
+<tr>
+<td>Perplexity Engineering, Brain (2026-08-19)</td>
+<td>Vendor description of its own system</td>
+</tr>
+<tr>
+<td>Wanderloots, scoped-vault tutorial (2026-07-23)</td>
+<td>Practitioner tutorial, no independent evaluation seen</td>
+</tr>
+<tr>
+<td>Flat-file second brain article</td>
+<td>Practitioner how-to, no tests</td>
+</tr>
+<tr>
+<td>Rigorous head-to-head against retrieval</td>
+<td>None found in searches on 2026-10-04</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="head-to-head-four-approaches-five-dimensions">Head-to-head: four approaches, five dimensions</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Long context</th>
+<th>RAG</th>
+<th>Compiled wiki</th>
+<th>Simple second brain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Setup effort</td>
+<td>Almost none</td>
+<td>Moderate to high</td>
+<td>Moderate (schema, workflow, review)</td>
+<td>Very low</td>
+</tr>
+<tr>
+<td>Whole-collection questions</td>
+<td>Possible if it fits</td>
+<td>Weak</td>
+<td>Potentially strong (synthesis exists already)</td>
+<td>Limited</td>
+</tr>
+<tr>
+<td>Traceability</td>
+<td>Ask for quotes</td>
+<td>Strong if built to cite</td>
+<td>Strong if every claim links to sources</td>
+<td>Simple (one topic per file)</td>
+</tr>
+<tr>
+<td>Freshness</td>
+<td>You paste the latest</td>
+<td>Re-index changes</td>
+<td>Needs ingest and lint</td>
+<td>Entirely on the human</td>
+</tr>
+<tr>
+<td>Main risk</td>
+<td>Cost; middle problem</td>
+<td>Misses; context-free chunks</td>
+<td>Compounding errors; over-trust</td>
+<td>Small scale only</td>
+</tr>
+</tbody>
+</table></div>
+<p>Choose by three questions: how big and how fast-changing is the collection, what will people ask, and who will maintain it.</p>
+<h2 id="where-compiled-knowledge-fails">Where compiled knowledge fails</h2>
+<p>Compounding errors, silent drift, over-trust (organized is not accurate), scale limits (Karpathy's note says the index works at moderate scale), privacy and access (what may the agent see, only read, or change), and maintenance cost (a wiki without a human curator tends to degrade).</p>
+<h2 id="worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</h2>
+<p>A nonprofit director collects about eighty documents about housing programs in five counties over three months. Questions are comparative: "Where do the counties' rules conflict?" Plain RAG answers county-by-county look-ups but struggles with that. A compiled wiki gives a page per county, program and source, plus a conflicts page, updated as documents arrive. Originals stay untouched. For the three documents behind board recommendations she reads the originals herself. That is the load-bearing check.</p>
+<h2 id="generalist-decision-card-five-questions-before-building-one">Generalist decision card: five questions before building one</h2>
+<ol>
+<li>What is the raw source of truth, and is it protected from edits?</li>
+<li>What is the rule for citing sources on every claim?</li>
+<li>Who reviews what the model writes, how often and how?</li>
+<li>How will we notice contradictions and stale pages?</li>
+<li>What is the plan when the collection outgrows the index?</li>
+</ol>
+<h2 id="counterpoints-and-limits">Counterpoints and limits</h2>
+<ul>
+<li>"Compiled beats retrieval" is a claim without a controlled comparison so far. Treat it as a promising pattern.</li>
+<li>Karpathy's date was not verified and is not stated here.</li>
+<li>The Perplexity argument is paraphrased from the post's introduction. Read its validation section before trusting any figure.</li>
+<li>The access-control ideas relayed from Wanderloots are a tutorial's design, not a security audit.</li>
+</ul>
+<h2 id="try-it-one-afternoon">Try it (one afternoon)</h2>
+<p>Pick 10 sources you can share with an AI tool. Keep them in a read-only folder. Write a one-page rule file (structure, citation rule, "never edit sources"). Have the model build a summary page per source and an index. Spot-check three pages against the originals. Keep it under version control so you can see changes.</p>
+<h2 id="quiz">Quiz</h2>
+<ol>
+<li>Name the three layers.</li>
+<li>Which layer is never edited by the model?</li>
+<li>Why can a wiki look more trustworthy than it is?</li>
+<li>When does long context beat a wiki?</li>
+<li>What does "lint" mean here?</li>
+</ol>
+<details class="answers"><summary>Show answers</summary><p>1. Raw sources, wiki, schema. 2. Raw sources. 3. Organization looks like accuracy; a wrong summary compounds. 4. Small, stable material you ask about right away. 5. A pass that looks for contradictions, stale pages and gaps.</p></details>
+<h2 id="maturity-thread">Maturity thread</h2>
+<p>Simple second brain (early rung) to compiled wiki with schema, citations and review (defined) to tracked error rates from spot checks (measured).</p>
+<h2 id="sources-and-further-reading">Sources and further reading</h2>
+<ul>
+<li><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy, LLM Wiki</a></li>
+<li><a href="https://www.perplexity.ai/hub/blog/brain-agentic-memory-as-a-knowledge-wiki">Perplexity Engineering, Brain (2026-08-19)</a> (vendor description)</li>
+<li><a href="https://www.patreon.com/wanderloots/posts/do-i-need-agent-164633727">Wanderloots, Do I NEED A Separate Agent Vault? (2026-07-23)</a></li>
+<li><a href="https://arxiv.org/abs/2307.03172">Liu et al., Lost in the Middle</a></li>
+<li><a href="https://x.com/Bober_smart/status/2078784709253841039">Flat-file second brain article (public mirror)</a></li>
+<li>On this site: <a href="comparison.html">comparison of the flat-file second brain and the Wanderloots approach</a>, <a href="emerging.html">emerging concepts</a></li>
+</ul>
+<p>Previous: <a href="ep4.html">Companion 4</a>. Next: <a href="advanced.html">Advanced concepts companion</a>.</p></article></main>
+<footer><div class="wrap">Plain-language companions to an AI learning podcast series. Evidence is labeled; vendor and practitioner claims are not treated as measurements. Fictional examples are marked.</div></footer>
+</body></html>
