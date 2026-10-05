@@ -1,0 +1,229 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>BETA follow-along: Episode 3 (not the live companion page)</title><style>
+:root{--ink:#16202b;--mut:#5b6876;--bg:#f6f4ee;--card:#fff;--navy:#0a2040;--beam:#f2b84b;--teal:#2f8f8c;--line:#e0dccf}
+*{box-sizing:border-box}body{margin:0;font:16.5px/1.55 Georgia,serif;color:var(--ink);background:var(--bg)}
+.bar{position:sticky;top:0;z-index:9;background:var(--navy);color:#fff;padding:8px 12px;font:14px system-ui,sans-serif}
+.bar .row{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:6px}
+#embed-iframe,iframe{width:100%;border:0;border-radius:12px;height:152px}
+.now{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.now b{color:var(--beam)}.now label{margin-left:auto;display:flex;gap:6px;align-items:center}
+.beta{background:#fbf6e6;border:1px solid #ecd9a0;border-radius:8px;padding:10px 12px;margin:14px 0;font:14px/1.45 system-ui,sans-serif}
+main{max-width:900px;margin:0 auto;padding:10px 14px 60px}
+h1{font:700 27px/1.2 system-ui,sans-serif;margin:16px 0 6px}
+.lede{color:var(--mut);margin:0 0 6px}
+details.idx{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:12px 0;font:14.5px system-ui,sans-serif}
+details.idx ul{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:6px}
+details.idx a{color:var(--ink);text-decoration:none}details.idx b{color:var(--teal);display:inline-block;min-width:44px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 16px 12px;margin:14px 0;scroll-margin-top:230px;transition:box-shadow .2s,border-color .2s}
+section.on{border-color:var(--teal);box-shadow:0 0 0 3px rgba(47,143,140,.25)}
+.hd{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.hd h2{font:700 19px/1.3 system-ui,sans-serif;margin:0}
+.seek{flex:none;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 10px;font:700 13px system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+section.on .seek{background:var(--teal)}
+.box{border:1.5px solid #9fb0bf;border-radius:10px;padding:10px 12px;background:#f3f6f8;font:14.5px/1.4 system-ui,sans-serif;display:flex;flex-direction:column;gap:3px}
+.box b{font-size:15.5px}.box small,.box span{color:#33414f;font-size:14px}.box .q{margin-top:6px;border-top:1px dashed #9fb0bf;padding-top:6px;color:#0a2040;font-weight:600}
+.box.a{background:#fbe9e5;border-color:#d58f82}.box.g{background:#e3f2ef;border-color:#7fb8b1}.box.k{background:#fbf1d6;border-color:#e0bd62}
+.wide{margin:8px 0}
+.two,.three,.four{display:grid;gap:10px;margin:8px 0}.two{grid-template-columns:1fr 1fr}.three{grid-template-columns:repeat(3,1fr)}.four{grid-template-columns:1fr 1fr}
+.flow{display:flex;align-items:stretch;gap:6px;margin:8px 0;flex-wrap:wrap}.flow .box{flex:1 1 120px;justify-content:center;text-align:center}.arr{align-self:center;color:var(--teal);font-weight:700}
+.tl{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0}.tl>div{border-left:4px solid var(--teal);padding:4px 10px;background:#f3f6f8;border-radius:0 8px 8px 0;font:14.5px/1.35 system-ui}.tl small{display:block;color:#33414f}
+.trade{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.desk{margin:10px 0;border:2px solid #8b6b3d;border-radius:10px;overflow:hidden;font:14.5px/1.4 system-ui}.deskhead{background:#8b6b3d;color:#fff;padding:5px 10px;font-weight:700;font-size:13px;letter-spacing:.05em}.deskbody{background:#f4e8d2;padding:12px}.deskfoot{background:#fbf6e6;padding:8px 12px;font-size:13.5px}
+.ladder{display:flex;flex-direction:column;gap:6px;margin:8px 0;font:14.5px system-ui}.ladder>div{padding:10px 12px;border-radius:8px;border:1.5px solid #9fb0bf;background:#e9eef2}.r2{margin-left:18px}.r3{margin-left:36px;background:#dff0ee!important;border-color:#7fb8b1!important}.r1.you{border-color:#e0bd62;background:#fbf1d6}
+.flow+.flow{margin-top:18px}.cap{color:var(--mut);font:14px/1.45 system-ui;margin:6px 0}
+.steps{padding-left:20px;font:15px/1.5 system-ui}.steps li{margin:8px 0}.mini{color:var(--teal);font-weight:700}
+@media(max-width:640px){.flow{flex-direction:column}.flow .box{flex:none}.arr{transform:rotate(90deg);align-self:center}.two,.three,.four,.tl,.trade{grid-template-columns:1fr}.hd h2{font-size:17.5px}h1{font-size:23px}section{scroll-margin-top:215px}}
+.tabs{display:flex;gap:8px;margin:12px 0 4px;font:700 14.5px system-ui,sans-serif}.tabs button{flex:1;padding:10px 8px;border-radius:10px;border:1.5px solid var(--teal);background:#fff;color:var(--teal);font:inherit;cursor:pointer}.tabs button[aria-selected=true]{background:var(--teal);color:#fff}
+#refview{display:none}.showref #refview{display:block}.showref #followview{display:none}
+#refview{font:16px/1.55 Georgia,serif}#refview h2.refh{font:700 22px/1.3 system-ui,sans-serif;margin:14px 0 6px}#refview h2{font:700 19px/1.3 system-ui,sans-serif;margin:22px 0 8px}#refview h3{font:700 16px system-ui}
+#refview .tw{overflow-x:auto;margin:14px 0}#refview table{border-collapse:collapse;width:100%;font:15px/1.45 system-ui,sans-serif;min-width:520px}#refview th,#refview td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}#refview th{background:#eef2f1}
+#refview figure.diagram{margin:1.2rem 0 1.6rem;padding:.5rem;background:#fff;border:1px solid var(--line);border-radius:10px}#refview figure.diagram svg{display:block;width:100%;max-width:420px;height:auto;margin:0 auto}#refview figure.diagram figcaption{margin-top:.6rem;font-size:.9rem;color:var(--mut);text-align:center}
+.refnote{background:#eef2f1;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0;font:14px/1.45 system-ui,sans-serif}
+</style></head><body>
+<div class="bar"><div class="row"><div id="embed-iframe"></div><div class="now"><span>Now: <b id="nowlabel">press play</b></span><label><input type="checkbox" id="follow" checked> Follow along</label></div><div id="apistat" style="color:#c9d6e0;font-size:12.5px">Loading player...</div></div></div>
+<main><h1>Episode 3: Knowledge management before AI</h1><p class="lede">Follow-along beta. Sections are in the order the episode says them, with the time each starts.</p><div class="tabs" role="tablist"><button role="tab" id="tabf" aria-selected="true" onclick="showTab(0)">Follow along (while listening)</button><button role="tab" id="tabr" aria-selected="false" onclick="showTab(1)">Reference &amp; cheat sheet (after)</button></div><div id="followview">
+<div class="beta"><b>BETA, not the live companion page.</b> Times are measured on the master file uploaded to Spotify (26:22, the same length Spotify shows; not compared byte-for-byte with Spotify's stored copy). Each segment boundary is accurate to the second; topics inside a segment appear in the order they are spoken. This page adds no teaching beyond what is spoken in the episode. The time on each button is the manual fallback. The buttons and auto-follow depend on Spotify's player loading and on browser support, and have not been tested in every browser.</div>
+<details class="idx"><summary><b>Jump to a moment</b> (18 sections)</summary><ul><li><a href="#s0" data-seek="0"><b>0:00</b> The night nurse and bed six</a></li><li><a href="#s1" data-seek="50"><b>0:50</b> Where this episode goes</a></li><li><a href="#s2" data-seek="85"><b>1:25</b> Knowledge management, and tacit versus explicit</a></li><li><a href="#s3" data-seek="223"><b>3:43</b> SECI: socialization, externalization, combination</a></li><li><a href="#s4" data-seek="351"><b>5:51</b> Internalization, the spiral, and where AI helps</a></li><li><a href="#s5" data-seek="455"><b>7:35</b> A fair critique of SECI</a></li><li><a href="#s6" data-seek="482"><b>8:02</b> Worked example: why the internal assistant stalls</a></li><li><a href="#s7" data-seek="628"><b>10:28</b> Maturity models and CMMI</a></li><li><a href="#s8" data-seek="752"><b>12:32</b> Using the ladder as a lens, and its cautions</a></li><li><a href="#s9" data-seek="839"><b>13:59</b> The five-question audit</a></li><li><a href="#s10" data-seek="914"><b>15:14</b> Objections 1 to 3</a></li><li><a href="#s11" data-seek="1036"><b>17:16</b> Objection 4, and a 30-day start</a></li><li><a href="#s12" data-seek="1144"><b>19:04</b> Illustration 1: the departing expert (invented case)</a></li><li><a href="#s13" data-seek="1248"><b>20:48</b> Illustration 2: the policy maze (invented case)</a></li><li><a href="#s14" data-seek="1298"><b>21:38</b> Seven questions for your workplace</a></li><li><a href="#s15" data-seek="1372"><b>22:52</b> A word on the ladder</a></li><li><a href="#s16" data-seek="1404"><b>23:24</b> Pulling the episode together</a></li><li><a href="#s17" data-seek="1498"><b>24:58</b> Recap, the ladder, homework</a></li></ul></details>
+<section id="s0" data-start="0" data-end="50"><div class="hd"><button class="seek" data-seek="0" aria-label="Play from 0:00">&#9654; 0:00</button><h2>The night nurse and bed six</h2></div><div class="flow"><div class="box "><b>Nurse: "Keep an eye on bed six. The numbers are fine."</b></div><div class="arr">&rarr;</div><div class="box g"><b>Two hours later the patient deteriorates; the team catches it early</b></div></div><div class="box k wide"><b>The central problem</b><small>An AI system can only work with knowledge that is written down somewhere. The most valuable knowledge in most organizations is not.</small></div></section>
+<section id="s1" data-start="50" data-end="85"><div class="hd"><button class="seek" data-seek="50" aria-label="Play from 0:50">&#9654; 0:50</button><h2>Where this episode goes</h2></div><div class="flow"><div class="box "><b>The discipline built for the job: knowledge management</b></div><div class="arr">&rarr;</div><div class="box "><b>The SECI model</b></div><div class="arr">&rarr;</div><div class="box "><b>Why AI efforts stall on knowledge, not technology</b></div><div class="arr">&rarr;</div><div class="box "><b>CMMI, the first maturity model, and its limits</b></div></div></section>
+<section id="s2" data-start="85" data-end="223"><div class="hd"><button class="seek" data-seek="85" aria-label="Play from 1:25">&#9654; 1:25</button><h2>Knowledge management, and tacit versus explicit</h2></div><div class="two"><div class="box g"><b>Explicit knowledge</b><small>Can be written down: a procedure, a specification, a price list, a formula</small></div><div class="box k"><b>Tacit knowledge</b><small>Lives in practice and experience: reading a room, hearing that a machine sounds wrong, bed six</small></div></div><p class="cap">Polanyi, 1966: "We can know more than we can tell." Nonaka (1994, Organization Science) argued organizations create knowledge by moving it between the two forms; explicit knowledge is the tip of the iceberg. Text on the desk is explicit knowledge, so everything tacit is invisible to an AI unless someone converts it. Quality of an AI system on your knowledge is capped by how much is explicit and how good that written form is.</p></section>
+<section id="s3" data-start="223" data-end="351"><div class="hd"><button class="seek" data-seek="223" aria-label="Play from 3:43">&#9654; 3:43</button><h2>SECI: socialization, externalization, combination</h2></div><p class="cap">Running example: a home-renovation company and a veteran estimator.</p><div class="three"><div class="box "><b>Socialization</b><small>Tacit to tacit. The apprentice rides along and absorbs his instincts. Works, slow, does not scale.</small></div><div class="box a"><b>Externalization</b><small>Tacit to explicit. Write the checklist, warning signs, questions. Hardest step; uses stories and examples.</small></div><div class="box g"><b>Combination</b><small>Explicit to explicit. Checklist, past quotes, supplier lists become an estimating guide and template. AI is genuinely strong here.</small></div></div></section>
+<section id="s4" data-start="351" data-end="455"><div class="hd"><button class="seek" data-seek="351" aria-label="Play from 5:51">&#9654; 5:51</button><h2>Internalization, the spiral, and where AI helps</h2></div><div class="box "><b>Internalization</b><small>Explicit to tacit. A new estimator uses the guide on 30 jobs until the habits live in her. The cycle restarts at a higher level: a spiral.</small></div><div class="four"><div class="box g"><b>Combination</b><small>Strongest. Merge, summarize, reorganize, compare.</small></div><div class="box k"><b>Externalization</b><small>Helps with a person in the loop: interviews the expert, drafts, the expert corrects.</small></div><div class="box "><b>Internalization</b><small>Indirect: tutor or coach. Learning still happens in the person.</small></div><div class="box a"><b>Socialization</b><small>Very little. A model cannot ride along to the job site.</small></div></div></section>
+<section id="s5" data-start="455" data-end="482"><div class="hd"><button class="seek" data-seek="455" aria-label="Play from 7:35">&#9654; 7:35</button><h2>A fair critique of SECI</h2></div><div class="box k"><b>Conceptual framework, not an experimentally proven law</b><small>Researchers debate how cleanly knowledge divides into tacit and explicit, and whether the four-part cycle matches real organizations. A useful way to think, not a measurement instrument.</small></div></section>
+<section id="s6" data-start="482" data-end="628"><div class="hd"><button class="seek" data-seek="482" aria-label="Play from 8:02">&#9654; 8:02</button><h2>Worked example: why the internal assistant stalls</h2></div><p class="cap">A mid-sized company builds an assistant for policy questions. The vendor demo is impressive; six months later the project is stuck. Almost always it is one of five knowledge problems:</p><div class="three"><div class="box "><b>1. Unwritten</b><small>Answers live in a few long-serving heads; documents describe the official process, not the real one.</small></div><div class="box "><b>2. Conflicting</b><small>Three documents, three answers. A model will happily use any of them.</small></div><div class="box "><b>3. Stale</b><small>The policy changed, the document did not.</small></div></div><div class="two"><div class="box "><b>4. Scattered</b><small>Email, chat, drives, tickets, personal folders. It cannot use what it cannot reach.</small></div><div class="box "><b>5. Unowned</b><small>No one accountable for accuracy, so no one fixes the source.</small></div></div><div class="box k wide"><b>None is a technology problem</b><small>They existed before AI. AI changes the cost of ignoring them: a human notices an old document and asks a colleague; a model reads what it is given and writes fluently. Messy knowledge gets more dangerous, good knowledge more valuable. Often the best investment is cleaning up and owning your knowledge.</small></div></section>
+<section id="s7" data-start="628" data-end="752"><div class="hd"><button class="seek" data-seek="628" aria-label="Play from 10:28">&#9654; 10:28</button><h2>Maturity models and CMMI</h2></div><p class="cap">A maturity model describes stages of capability. CMMI (CMMI Institute, for software and systems development) has levels one to five, plus a level zero, incomplete. Renovation-company version:</p><div class="ladder"><div class="r3">5 Optimizing: keeps improving the process from the data, keeps what works</div><div class="r3">4 Quantitatively managed: tracks quote accuracy against actual costs</div><div class="r2">3 Defined: one documented estimating process everyone uses, with training</div><div class="r2">2 Managed: project-level plans, a quote template, copies of past quotes</div><div class="r1">1 Initial: improvised; the veteran prices by gut feel; nobody can quote when he is out</div></div></section>
+<section id="s8" data-start="752" data-end="839"><div class="hd"><button class="seek" data-seek="752" aria-label="Play from 12:32">&#9654; 12:32</button><h2>Using the ladder as a lens, and its cautions</h2></div><div class="three"><div class="box "><b>Level 1</b><small>A pilot that lives in one enthusiast's chat history</small></div><div class="box "><b>Level 3-ish</b><small>A shared prompt library with a standard way to check outputs</small></div><div class="box "><b>Climbing to 4</b><small>Measuring how often AI drafts get corrected, and using it to improve</small></div></div><div class="three"><div class="box a"><b>Caution 1</b><small>CMMI is for software and system processes. Applying it to AI adoption is an analogy, not an official use.</small></div><div class="box a"><b>Caution 2</b><small>Do not chase the level instead of the result. Tie improvement to business objectives.</small></div><div class="box a"><b>Caution 3</b><small>A model describes common patterns, not a guaranteed path. The highest level is not right for everything.</small></div></div><p class="cap">A later episode covers AI maturity models and the honest criticisms.</p></section>
+<section id="s9" data-start="839" data-end="914"><div class="hd"><button class="seek" data-seek="839" aria-label="Play from 13:59">&#9654; 13:59</button><h2>The five-question audit</h2></div><ol class="steps"><li>Is it written down, and does it reflect how things really work? Ask frontline people to compare the document with reality.</li><li>Are there conflicting versions? Search the topic and count the different answers.</li><li>Is it current, and how would you know? Look for dates and owners.</li><li>Can it be found? Is there a map of where knowledge lives?</li><li>Who owns it? Name a person, not a team.</li></ol><p class="cap">Score yourself honestly. Several "no" answers mean your real project is knowledge work, not an AI tool. Once knowledge is in shape, AI helps maintain it: finding contradictions, flagging stale pages, drafting updates for humans to review.</p></section>
+<section id="s10" data-start="914" data-end="1036"><div class="hd"><button class="seek" data-seek="914" aria-label="Play from 15:14">&#9654; 15:14</button><h2>Objections 1 to 3</h2></div><div class="three"><div class="box a"><b>"We already have a wiki"</b><small>Last time a wrong page was removed? Every page owned? Can a new hire find a basic answer without asking? Never, no, no means storage, not managed knowledge.</small></div><div class="box g"><b>"People will not write things down"</b><small>Capture as a byproduct of work; show the benefit. AI lowers the cost: a voice memo becomes a page the author corrects.</small></div><div class="box k"><b>"AI can read all our email and chat"</b><small>Raw communication is opinions, drafts, jokes, outdated plans, private data. Better: AI proposes summaries and decision records; a person approves the official page.</small></div></div></section>
+<section id="s11" data-start="1036" data-end="1144"><div class="hd"><button class="seek" data-seek="1036" aria-label="Play from 17:16">&#9654; 17:16</button><h2>Objection 4, and a 30-day start</h2></div><div class="box g"><b>"If tacit knowledge cannot be written down, is it hopeless?"</b><small>No. Capture decisions and the reasons behind them, exceptions, warning signs, stories of what went wrong. Pair people on real work. Goal: reduce the risk of critical knowledge in one head.</small></div><ol class="steps"><li><b>Week 1.</b> Pick one area where questions repeat; list the 20 most common questions.</li><li><b>Week 2.</b> Find the current answer and source for each; mark missing, conflicting or stale.</li><li><b>Week 3.</b> Fix the worst 10: short plain pages, date and owner at the top, archive old versions.</li><li><b>Week 4.</b> Give a model just those pages, ask the 20 questions, compare, and trace each failure to a knowledge problem.</li></ol><p class="cap">Result: a small owned, tested body of knowledge, a list of gaps, real evidence, and a first step up the ladder from improvised toward repeatable.</p></section>
+<section id="s12" data-start="1144" data-end="1248"><div class="hd"><button class="seek" data-seek="1144" aria-label="Play from 19:04">&#9654; 19:04</button><h2>Illustration 1: the departing expert (invented case)</h2></div><div class="flow"><div class="box "><b>Interview Maria for a few hours on the ten customers that matter; record and transcribe</b></div><div class="arr">&rarr;</div><div class="box "><b>A colleague turns each into a one-page note: who, special terms, why, who to call</b></div><div class="arr">&rarr;</div><div class="box g"><b>Maria reads and corrects each note</b></div></div><p class="cap">Told as an invented illustration, not a report about a real company. It maps to SECI: the interview is externalization.</p></section>
+<section id="s13" data-start="1248" data-end="1298"><div class="hd"><button class="seek" data-seek="1248" aria-label="Play from 20:48">&#9654; 20:48</button><h2>Illustration 2: the policy maze (invented case)</h2></div><div class="flow"><div class="box "><b>Leave policy in four places: handbook, intranet, HR email, slide deck</b></div><div class="arr">&rarr;</div><div class="box a"><b>Staff get different answers depending on which was retrieved</b></div><div class="arr">&rarr;</div><div class="box g"><b>Fix: decide which is current, archive the others, name an owner</b></div></div><p class="cap">The fix had nothing to do with the model. A human notices a conflict and asks someone; a machine answering at scale may not.</p></section>
+<section id="s14" data-start="1298" data-end="1372"><div class="hd"><button class="seek" data-seek="1298" aria-label="Play from 21:38">&#9654; 21:38</button><h2>Seven questions for your workplace</h2></div><ol class="steps"><li>Where does the knowledge people need most live, and who can change it?</li><li>What happens to it when a key person leaves, goes on leave or changes roles?</li><li>For our most common questions, is there one agreed answer with a date and an owner?</li><li>How would a new person find something that is not written down?</li><li>What do people do when two documents disagree?</li><li>Which material is sensitive, and who decided what an AI tool may read?</li><li>How would we know if an AI answer based on our material were wrong?</li></ol><p class="cap">Pick two; do not answer all in one meeting. None mentions a model or vendor, deliberately.</p></section>
+<section id="s15" data-start="1372" data-end="1404"><div class="hd"><button class="seek" data-seek="1372" aria-label="Play from 22:52">&#9654; 22:52</button><h2>A word on the ladder</h2></div><div class="box k"><b>Language and a rough order of operations</b><small>It can also encourage box ticking. Use levels as a conversation starter: where are we, what is the next sensible step, what result would it improve? If the answer is a label rather than a result, pause.</small></div></section>
+<section id="s16" data-start="1404" data-end="1498"><div class="hd"><button class="seek" data-seek="1404" aria-label="Play from 23:24">&#9654; 23:24</button><h2>Pulling the episode together</h2></div><div class="three"><div class="box "><b>Knowledge management</b><small>Getting what people know into a form others can find, trust and use</small></div><div class="box a"><b>Why AI projects stall</b><small>Conflicting, unowned, stale, tacit. A model on top repeats the mess fluently.</small></div><div class="box g"><b>The generalist move</b><small>Pick one area, list common questions, find sources, fix the worst conflicts, name owners, test with a model.</small></div></div></section>
+<section id="s17" data-start="1498" data-end="1583"><div class="hd"><button class="seek" data-seek="1498" aria-label="Play from 24:58">&#9654; 24:58</button><h2>Recap, the ladder, homework</h2></div><div class="four"><div class="box "><b>Explicit vs tacit</b><small>Polanyi: we know more than we can tell</small></div><div class="box "><b>SECI</b><small>Socialization, externalization, combination, internalization</small></div><div class="box "><b>Where AI helps</b><small>Strong at combination, helpful at externalization, weak at socialization</small></div><div class="box "><b>Five problems</b><small>Unwritten, conflicting, stale, scattered, unowned</small></div></div><div class="box g"><b>Homework</b><small>Pick one topic people often ask about, run the five-question audit on its documents, write down the weakest answer.</small></div><p class="cap">Next episode: retrieval-augmented generation, the most common way organizations connect AI to their documents.</p></section>
+<p class="cap">Based on the episode script and timings measured on the master file uploaded to Spotify. Companion reference page: <a href="https://blademonkey.github.io/ai-learning-companions/ep3.html">ep3</a>.</p></div><div id="refview"><p class="refnote">Same content as the current ep3 companion page, kept here as a scan-and-study cheat sheet. The audio keeps playing in the player above while you read it.</p><h2 class="refh">Reference &amp; cheat sheet: Knowledge management before AI</h2>
+<p>Companion to episode 3 of the series. Read it before or after the episode. It repeats the ideas in a form you can scan, compare and test.</p>
+<h2 id="the-idea-in-one-paragraph">The idea in one paragraph</h2>
+<p>Most stalled AI projects stall on knowledge, not on technology. Knowledge management is the older discipline of deciding what is known, where it lives, whether it is current and who owns it. Nonaka's SECI model maps how knowledge moves between tacit (in people) and explicit (written). A maturity model such as CMMI gives a vocabulary for how repeatable a practice is.</p>
+<h2 id="key-terms">Key terms</h2><figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-labelledby="f6t f6d" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><title id="f6t">The five CMMI levels</title><desc id="f6d">The CMMI maturity model has five levels, from Initial at the bottom through Managed, Defined and Quantitatively Managed to Optimizing at the top.</desc><defs><marker id="ah0a2040" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0a2040"/></marker><marker id="ah2f8f8c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f8f8c"/></marker><marker id="aha8442f" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8442f"/></marker><marker id="ah5b6876" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6876"/></marker></defs><rect x="12" y="250" width="210" height="50" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="117.0" y="280.25" font-size="16.5" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="117.0" dy="0.0">1  Initial</tspan></text><rect x="12" y="190" width="240" height="50" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="132.0" y="220.25" font-size="16.5" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="132.0" dy="0.0">2  Managed</tspan></text><rect x="12" y="130" width="270" height="50" rx="8" fill="#fbefd3" stroke="#0a2040" stroke-width="1.6"/><text x="147.0" y="160.25" font-size="16.5" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="147.0" dy="0.0">3  Defined</tspan></text><rect x="12" y="70" width="300" height="50" rx="8" fill="#fbefd3" stroke="#0a2040" stroke-width="1.6"/><text x="162.0" y="100.25" font-size="16.5" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="162.0" dy="0.0">4  Quantitatively managed</tspan></text><rect x="12" y="10" width="330" height="50" rx="8" fill="#dcefee" stroke="#2f8f8c" stroke-width="1.6"/><text x="177.0" y="40.25" font-size="16.5" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="177.0" dy="0.0">5  Optimizing</tspan></text></svg><figcaption>A maturity model describes stages of capability and what each one looks like. These are the five CMMI level names, lowest at the bottom.</figcaption></figure>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tacit knowledge</td>
+<td>What people know but cannot easily write down ("we can know more than we can tell", Polanyi, as quoted by Nonaka).</td>
+</tr>
+<tr>
+<td>Explicit knowledge</td>
+<td>Written down: documents, checklists, data.</td>
+</tr>
+<tr>
+<td>SECI</td>
+<td>Socialization (tacit to tacit), Externalization (tacit to explicit), Combination (explicit to explicit), Internalization (explicit to tacit).</td>
+</tr>
+<tr>
+<td>Maturity model</td>
+<td>A description of stages of capability, with what each looks like.</td>
+</tr>
+<tr>
+<td>CMMI levels</td>
+<td>Initial, Managed, Defined, Quantitatively Managed, Optimizing.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="where-ai-helps-in-seci">Where AI helps in SECI</h2><figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400" role="img" aria-labelledby="f5t f5d" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><title id="f5t">The SECI model and where AI helps</title><desc id="f5d">Knowledge moves between tacit and explicit forms in four modes. Socialization is tacit to tacit and AI helps little. Externalization is tacit to explicit and AI helps if the expert stays in the loop. Combination is explicit to explicit and is where AI is strongest. Internalization is explicit to tacit and AI helps only indirectly as a tutor or coach.</desc><defs><marker id="ah0a2040" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0a2040"/></marker><marker id="ah2f8f8c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f8f8c"/></marker><marker id="aha8442f" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8442f"/></marker><marker id="ah5b6876" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6876"/></marker></defs><rect x="12" y="10" width="160" height="176" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="92.0" y="103.6" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="92.0" dy="0.0"></tspan></text><text x="92" y="38" font-size="16.5" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="92" dy="0.0">Socialization</tspan></text><text x="92" y="58" font-size="14.3" fill="#5b6876" text-anchor="middle" font-weight="400"><tspan x="92" dy="0.0">Tacit to tacit</tspan></text><text x="92" y="90" font-size="14.850000000000001" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="92" dy="0.0">AI: little. A model</tspan><tspan x="92" dy="18.7">cannot ride along</tspan><tspan x="92" dy="18.7">to the job site.</tspan></text><rect x="188" y="10" width="160" height="176" rx="8" fill="#fbefd3" stroke="#0a2040" stroke-width="1.6"/><text x="268.0" y="103.6" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="268.0" dy="0.0"></tspan></text><text x="268" y="38" font-size="16.5" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="268" dy="0.0">Externalization</tspan></text><text x="268" y="58" font-size="14.3" fill="#5b6876" text-anchor="middle" font-weight="400"><tspan x="268" dy="0.0">Tacit to explicit</tspan></text><text x="268" y="90" font-size="14.850000000000001" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="268" dy="0.0">AI: helps if the</tspan><tspan x="268" dy="18.7">expert stays in the</tspan><tspan x="268" dy="18.7">loop.</tspan></text><rect x="12" y="206" width="160" height="176" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="92.0" y="299.6" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="92.0" dy="0.0"></tspan></text><text x="92" y="234" font-size="16.5" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="92" dy="0.0">Internalization</tspan></text><text x="92" y="254" font-size="14.3" fill="#5b6876" text-anchor="middle" font-weight="400"><tspan x="92" dy="0.0">Explicit to tacit</tspan></text><text x="92" y="286" font-size="14.850000000000001" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="92" dy="0.0">AI: indirect, as</tspan><tspan x="92" dy="18.7">tutor or coach.</tspan></text><rect x="188" y="206" width="160" height="176" rx="8" fill="#dcefee" stroke="#2f8f8c" stroke-width="2.4"/><text x="268.0" y="299.6" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="268.0" dy="0.0"></tspan></text><text x="268" y="234" font-size="16.5" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="268" dy="0.0">Combination</tspan></text><text x="268" y="254" font-size="14.3" fill="#5b6876" text-anchor="middle" font-weight="400"><tspan x="268" dy="0.0">Explicit to explicit</tspan></text><text x="268" y="286" font-size="14.850000000000001" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="268" dy="0.0">AI: strongest.</tspan><tspan x="268" dy="18.7">Merging,</tspan><tspan x="268" dy="18.7">summarizing,</tspan><tspan x="268" dy="18.7">comparing.</tspan></text><line x1="174" y1="98" x2="186" y2="98" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><line x1="268" y1="188" x2="268" y2="204" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><line x1="186" y1="294" x2="174" y2="294" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><line x1="92" y1="204" x2="92" y2="188" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/></svg><figcaption>Learning still happens in the person. AI is strongest where explicit material is combined and weakest where knowledge is tacit.</figcaption></figure>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>AI's role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Socialization</td>
+<td>Little. A model cannot ride along to the job site.</td>
+</tr>
+<tr>
+<td>Externalization</td>
+<td>Helps if the expert stays in the loop: interviews, drafts, corrections.</td>
+</tr>
+<tr>
+<td>Combination</td>
+<td>Strongest. Merging, summarizing, comparing explicit material.</td>
+</tr>
+<tr>
+<td>Internalization</td>
+<td>Indirect, as tutor or coach. Learning still happens in the person.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-five-knowledge-problems-this-series-own-synthesis-from-common-patterns">The five knowledge problems (this series' own synthesis, from common patterns)</h2>
+<ol>
+<li>Not written down. 2. Written in conflicting versions. 3. Stale. 4. Scattered. 5. Nobody owns it.
+None is a technology problem. AI raises the cost of ignoring them, because it does not apply a person's judgment about which document is old.</li>
+</ol>
+<h2 id="head-to-head-where-to-invest-first">Head-to-head: where to invest first</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Buy or build an AI tool</th>
+<th>Clean up and own the knowledge first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast to show</td>
+<td>Yes (demos)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Fixes the five problems</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Risk</td>
+<td>Confidently wrong answers from messy sources</td>
+<td>Slower visible progress</td>
+</tr>
+<tr>
+<td>Fits when</td>
+<td>Knowledge is already in decent shape</td>
+<td>Answers to the audit below are mostly no</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</h2>
+<p>A renovation company's veteran estimator prices jobs by feel. Socialization: the apprentice rides along. Externalization: they write the checklist of warning signs. Combination: checklist, past quotes and price lists become an estimating guide. Internalization: a new estimator uses it on thirty jobs until it is habit. On the maturity ladder: improvised, then a quote template, then a documented process everyone uses, then measuring quote accuracy against actual costs, then improving the process from that data.</p>
+<h2 id="generalist-decision-card-five-question-audit-before-pointing-ai-at-anything">Generalist decision card: five-question audit before pointing AI at anything</h2>
+<ol>
+<li>Is it written down and does it match how things really work?</li>
+<li>Are there conflicting versions?</li>
+<li>Is it current, and how would you know (dates, owners)?</li>
+<li>Can it be found (is there a map)?</li>
+<li>Who owns it (a person, not a team)?
+Several "no" answers mean the real project is knowledge work.</li>
+</ol>
+<h2 id="counterpoints-and-limits">Counterpoints and limits</h2>
+<ul>
+<li>SECI is an influential conceptual framework, not an experimentally proven law. Researchers debate how cleanly knowledge divides into tacit and explicit.</li>
+<li>CMMI was written for software and systems development processes. Using its level names for AI adoption is an analogy, not an official use.</li>
+<li>Maturity ladders invite chasing the level instead of the result. CMMI Institute states that organizations benefit from a level when improvement focuses on business and performance results.</li>
+<li>The five-problem list is a synthesis, not a sourced finding.</li>
+</ul>
+<h2 id="try-it-30-days-small">Try it (30 days, small)</h2>
+<p>Pick one body of knowledge you rely on. Run the audit. Name an owner. Fix the single worst problem. Re-run in 30 days.</p>
+<h2 id="quiz">Quiz</h2>
+<ol>
+<li>Give one example of each SECI mode.</li>
+<li>Where is AI strongest in SECI?</li>
+<li>Name two of the five knowledge problems.</li>
+<li>Why is applying CMMI levels to AI "an analogy"?</li>
+<li>What question does a maturity model give you for any AI effort?</li>
+</ol>
+<details class="answers"><summary>Show answers</summary><p>1. Ride-along, writing a checklist, building a guide from past material, using the guide until it is habit. 2. Combination. 3. See list. 4. CMMI is defined for software and systems development processes. 5. Is this improvised, repeatable, standardized, measured or improving?</p></details>
+<h2 id="sources-and-further-reading">Sources and further reading</h2>
+<ul>
+<li><a href="https://www.lamsade.dauphine.fr/~giard/Organization_Science_Nonaka94.pdf">Nonaka, A Dynamic Theory of Organizational Knowledge Creation (1994)</a></li>
+<li><a href="https://cmmiinstitute.com/cmmi">CMMI Institute overview</a></li>
+<li><a href="https://cmmiinstitute.com/learning/appraisals/levels">CMMI Institute, levels of capability and performance</a></li>
+</ul>
+<p>Previous: <a href="ep2.html">Companion 2</a>. Next: <a href="ep4.html">Companion 4</a>.</p></div></main>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script><script>
+const secs=[...document.querySelectorAll('section')];let ctrl=null,follow=true,active=-1,lastSeek=0,pendingSeek=null,tries=0,started=false,wantSeek=null;
+const label=document.getElementById('nowlabel'),stat=document.getElementById('apistat');
+const diag={script:'loading',api:'waiting',player:'waiting'};function showDiag(){let d=document.getElementById('diag');if(!d){d=document.createElement('div');d.id='diag';d.style.cssText='color:#9fb3c4;font-size:11.5px;margin-top:2px';stat.after(d)}d.innerHTML='Player status: script '+diag.script+', api '+diag.api+', player '+diag.player+' &middot; <a style="color:#f2b84b" target="_blank" rel="noopener" href="https://open.spotify.com/episode/5WmDr83RQVRVZbcPSWeGZb">open this episode on Spotify</a>'}showDiag();
+const OK='Player loaded. Auto-follow and the time buttons are not verified in every browser. If they do not respond, use the player scrubber and the time shown on each button.';
+const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+function setActive(i){if(i===active)return;active=i;secs.forEach((s,j)=>s.classList.toggle('on',j===i));
+ if(i>=0){label.textContent=document.querySelector('#s'+i+' h2').textContent;if(follow)secs[i].scrollIntoView({behavior:'smooth',block:'start'});}}
+function pos(sec){let k=0;secs.forEach((s,j)=>{if(sec>=+s.dataset.start)k=j});return k}
+document.getElementById('follow').addEventListener('change',e=>{follow=e.target.checked});
+function go(s){
+ if(!ctrl){wantSeek=s;stat.textContent='Player still loading. It will jump to '+mmss(s)+' as soon as it is ready. If this stays, the player may be blocked in this browser; use the scrubber and the time on the button.';return}
+ lastSeek=Date.now();
+ if(!started){pendingSeek=s;ctrl.seek(s);ctrl.resume();stat.textContent='Starting the player, then jumping to '+mmss(s)+'...'}
+ else{ctrl.seek(s);ctrl.resume();stat.textContent='Jumped player to '+mmss(s)}}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-seek]');if(!a)return;const s=+a.dataset.seek;
+ if(a.tagName==='A')e.preventDefault();
+ setActive(-2);setActive(pos(s));go(s)});
+window.onSpotifyIframeApiReady=api=>{diag.api='ready';showDiag();api.createController(document.getElementById('embed-iframe'),{uri:'spotify:episode:5WmDr83RQVRVZbcPSWeGZb',width:'100%',height:152},c=>{ctrl=c;diag.player='ready';showDiag();stat.textContent=OK;
+ c.addListener('playback_update',e=>{const p=e.data.position/1000;
+  if(!e.data.isPaused)started=true;
+  if(pendingSeek!==null){if(Math.abs(p-pendingSeek)<=4&&!e.data.isPaused){pendingSeek=null;tries=0;stat.textContent='Jumped player to '+mmss(Math.round(p))}else if(started&&!e.data.isPaused&&p>=1&&tries<12){tries++;c.seek(pendingSeek)}return}
+  if(!e.data.isPaused||p>0)setActive(pos(p))});
+ c.addListener('ready',()=>{stat.textContent=OK});
+ if(wantSeek!==null){const t=wantSeek;wantSeek=null;go(t)}})};
+const sc=document.createElement('script');sc.src='https://open.spotify.com/embed/iframe-api/v1';sc.async=true;sc.onload=()=>{diag.script='loaded';showDiag()};
+function plain(){const h=document.getElementById('embed-iframe');if(h&&!h.querySelector('iframe')&&!ctrl){const f=document.createElement('iframe');f.src='https://open.spotify.com/embed/episode/5WmDr83RQVRVZbcPSWeGZb';f.width='100%';f.height='152';f.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';f.style.cssText='border:0;border-radius:12px';h.appendChild(f)}}
+sc.onerror=()=>{diag.script='failed to load';showDiag();plain();stat.textContent="The page could not load Spotify's control script in this browser (cause unknown: a browser extension, network setting or Spotify itself). A basic Spotify player is shown instead. Time buttons will not move it; use its scrubber and the time on each button."};
+document.head.appendChild(sc);
+setTimeout(()=>{if(!ctrl&&!/could not load/.test(stat.textContent)){plain();stat.textContent='The control player did not become ready in 9 seconds. A basic Spotify player is shown instead; use its scrubber and the time on each button.'}},9000);
+</script><script>function showTab(n){document.body.classList.toggle("showref",n==1);document.getElementById("tabf").setAttribute("aria-selected",n==0);document.getElementById("tabr").setAttribute("aria-selected",n==1);window.scrollTo(0,0)}</script></body></html>
