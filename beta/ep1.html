@@ -74,7 +74,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-seek]');if
 window.onSpotifyIframeApiReady=api=>{api.createController(document.getElementById('embed-iframe'),{uri:'spotify:episode:0VNun0qG21JcZrxj6aKEks',width:'100%',height:152},c=>{ctrl=c;stat.textContent=OK;
  c.addListener('playback_update',e=>{const p=e.data.position/1000;
   if(!e.data.isPaused)started=true;
-  if(pendingSeek!==null){if(started){const t=pendingSeek;pendingSeek=null;c.seek(t);stat.textContent='Jumped player to '+mmss(t)}return}
+  if(pendingSeek!==null){if(started&&!e.data.isPaused&&p>=1){const t=pendingSeek;pendingSeek=null;c.seek(t);stat.textContent='Jumped player to '+mmss(t)}return}
   if(!e.data.isPaused||p>0)setActive(pos(p))});
  c.addListener('ready',()=>{stat.textContent=OK});
  if(wantSeek!==null){const t=wantSeek;wantSeek=null;go(t)}})};
