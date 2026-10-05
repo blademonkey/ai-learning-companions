@@ -80,7 +80,8 @@ window.onSpotifyIframeApiReady=api=>{diag.api='ready';showDiag();api.createContr
  c.addListener('ready',()=>{stat.textContent=OK});
  if(wantSeek!==null){const t=wantSeek;wantSeek=null;go(t)}})};
 const sc=document.createElement('script');sc.src='https://open.spotify.com/embed/iframe-api/v1';sc.async=true;sc.onload=()=>{diag.script='loaded';showDiag()};
-sc.onerror=()=>{diag.script='blocked';showDiag();stat.textContent="Spotify's player script did not load in this browser (an ad or tracker blocker can cause this). The time buttons still show where each idea is; use the player's scrubber."};
+function plain(){const h=document.getElementById('embed-iframe');if(h&&!h.querySelector('iframe')&&!ctrl){const f=document.createElement('iframe');f.src='https://open.spotify.com/embed/episode/0VNun0qG21JcZrxj6aKEks';f.width='100%';f.height='152';f.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';f.style.cssText='border:0;border-radius:12px';h.appendChild(f)}}
+sc.onerror=()=>{diag.script='failed to load';showDiag();plain();stat.textContent="The page could not load Spotify's control script in this browser (cause unknown: a browser extension, network setting or Spotify itself). A basic Spotify player is shown instead. Time buttons will not move it; use its scrubber and the time on each button."};
 document.head.appendChild(sc);
-setTimeout(()=>{if(!ctrl&&!/did not load/.test(stat.textContent))stat.textContent='Live follow is not available in this browser yet. The timestamp buttons still show where each idea is.'},9000);
+setTimeout(()=>{if(!ctrl&&!/could not load/.test(stat.textContent)){plain();stat.textContent='The control player did not become ready in 9 seconds. A basic Spotify player is shown instead; use its scrubber and the time on each button.'}},9000);
 </script></body></html>
