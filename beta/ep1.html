@@ -32,9 +32,15 @@ section.on .seek{background:var(--teal)}
 .flow+.flow{margin-top:18px}.cap{color:var(--mut);font:14px/1.45 system-ui;margin:6px 0}
 .steps{padding-left:20px;font:15px/1.5 system-ui}.steps li{margin:8px 0}.mini{color:var(--teal);font-weight:700}
 @media(max-width:640px){.flow{flex-direction:column}.flow .box{flex:none}.arr{transform:rotate(90deg);align-self:center}.two,.three,.four,.tl,.trade{grid-template-columns:1fr}.hd h2{font-size:17.5px}h1{font-size:23px}section{scroll-margin-top:215px}}
+.tabs{display:flex;gap:8px;margin:12px 0 4px;font:700 14.5px system-ui,sans-serif}.tabs button{flex:1;padding:10px 8px;border-radius:10px;border:1.5px solid var(--teal);background:#fff;color:var(--teal);font:inherit;cursor:pointer}.tabs button[aria-selected=true]{background:var(--teal);color:#fff}
+#refview{display:none}.showref #refview{display:block}.showref #followview{display:none}
+#refview{font:16px/1.55 Georgia,serif}#refview h2.refh{font:700 22px/1.3 system-ui,sans-serif;margin:14px 0 6px}#refview h2{font:700 19px/1.3 system-ui,sans-serif;margin:22px 0 8px}#refview h3{font:700 16px system-ui}
+#refview .tw{overflow-x:auto;margin:14px 0}#refview table{border-collapse:collapse;width:100%;font:15px/1.45 system-ui,sans-serif;min-width:520px}#refview th,#refview td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}#refview th{background:#eef2f1}
+#refview figure.diagram{margin:1.2rem 0 1.6rem;padding:.5rem;background:#fff;border:1px solid var(--line);border-radius:10px}#refview figure.diagram svg{display:block;width:100%;max-width:420px;height:auto;margin:0 auto}#refview figure.diagram figcaption{margin-top:.6rem;font-size:.9rem;color:var(--mut);text-align:center}
+.refnote{background:#eef2f1;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0;font:14px/1.45 system-ui,sans-serif}
 </style></head><body>
 <div class="bar"><div class="row"><div id="embed-iframe"></div><div class="now"><span>Now: <b id="nowlabel">press play</b></span><label><input type="checkbox" id="follow" checked> Follow along</label></div><div id="apistat" style="color:#c9d6e0;font-size:12.5px">Loading player...</div></div></div>
-<main><h1>Episode 1: What AI Actually Is</h1><p class="lede">Follow-along beta. Sections are in the order the episode says them, with the time each starts.</p>
+<main><h1>Episode 1: What AI Actually Is</h1><p class="lede">Follow-along beta. Sections are in the order the episode says them, with the time each starts.</p><div class="tabs" role="tablist"><button role="tab" id="tabf" aria-selected="true" onclick="showTab(0)">Follow along (while listening)</button><button role="tab" id="tabr" aria-selected="false" onclick="showTab(1)">Reference &amp; cheat sheet (after)</button></div><div id="followview">
 <div class="beta"><b>BETA, not the live companion page.</b> Times are measured on the master file uploaded to Spotify (26:06, the same length Spotify shows; not compared byte-for-byte with Spotify's stored copy). Each segment boundary is accurate to the second; topics inside a segment appear in the order they are spoken. The time on each button is the manual fallback. The buttons and auto-follow depend on Spotify's player loading and on browser support, and have not been tested in every browser.</div>
 <details class="idx"><summary><b>Jump to a moment</b> (15 sections)</summary><ul><li><a href="#s0" data-seek="0"><b>0:00</b> The question: what is on the other side?</a></li><li><a href="#s1" data-seek="126"><b>2:06</b> Where AI came from, and the first approach: rules</a></li><li><a href="#s2" data-seek="239"><b>3:59</b> Learning from examples, then deep learning</a></li><li><a href="#s3" data-seek="361"><b>6:01</b> What a chatbot is doing: predicting likely text</a></li><li><a href="#s4" data-seek="484"><b>8:04</b> Why it sounds right and is wrong, and the desk</a></li><li><a href="#s5" data-seek="601"><b>10:01</b> No memory, and the desk rule</a></li><li><a href="#s6" data-seek="637"><b>10:37</b> Three kinds of AI: predictive, generative, agentic</a></li><li><a href="#s7" data-seek="748"><b>12:28</b> Same problem, three risk profiles, and demo vs reliance</a></li><li><a href="#s8" data-seek="858"><b>14:18</b> Maturity model: the idea</a></li><li><a href="#s9" data-seek="885"><b>14:45</b> Back to the desk: three ways to get knowledge onto it</a></li><li><a href="#s10" data-seek="1089"><b>18:09</b> Three experiments you can run in ten minutes</a></li><li><a href="#s11" data-seek="1236"><b>20:36</b> Four common misunderstandings</a></li><li><a href="#s12" data-seek="1341"><b>22:21</b> Three habits, and the recap</a></li><li><a href="#s13" data-seek="1463"><b>24:23</b> Where this sits on the maturity ladder, and what is next</a></li><li><a href="#s14" data-seek="1500"><b>25:00</b> A note on sources</a></li></ul></details>
 <section id="s0" data-start="0" data-end="126"><div class="hd"><button class="seek" data-seek="0" aria-label="Play from 0:00">&#9654; 0:00</button><h2>The question: what is on the other side?</h2></div><div class="two"><div class="box"><b>Picture 1</b><span>A very smart person in there who read everything and understands it</span></div><div class="box b"><b>Picture 2</b><span>A fancy autocomplete, nothing more</span></div></div><p class="cap">The episode says both pictures are a little bit right, and both lead to bad decisions if held too tightly.</p><p>Series shape: start at the beginning, climb to knowledge for AI, agents and maturity. Two threads run through it: <b>knowledge management</b> and <b>maturity models</b>.</p></section>
@@ -53,7 +59,117 @@ section.on .seek{background:var(--teal)}
 <section id="s13" data-start="1463" data-end="1500"><div class="hd"><button class="seek" data-seek="1463" aria-label="Play from 24:23">&#9654; 24:23</button><h2>Where this sits on the maturity ladder, and what is next</h2></div><div class="ladder"><div class="r3">Next rung: a repeatable way of giving it the right material and checking its work (not a smarter model)</div><div class="r1 you">Just asking a chatbot and hoping: improvised, and fine for a start</div></div><p class="cap">Next episode: how these models work and fail in more detail: tokens, context windows, why the same prompt gives different answers.</p></section>
 <section id="s14" data-start="1500" data-end="1566"><div class="hd"><button class="seek" data-seek="1500" aria-label="Play from 25:00">&#9654; 25:00</button><h2>A note on sources</h2></div><p>The series aims to back factual claims with sources. The full list is on the main companion page: <a href="https://blademonkey.github.io/ai-learning-companions/ep1.html#sources-and-further-reading">Sources and further reading</a>.</p></section>
 
-<p class="cap">Based on the episode script and timings measured on the master file uploaded to Spotify. Companion reference page: <a href="https://blademonkey.github.io/ai-learning-companions/ep1.html">ep1</a>.</p></main>
+<p class="cap">Based on the episode script and timings measured on the master file uploaded to Spotify. Companion reference page: <a href="https://blademonkey.github.io/ai-learning-companions/ep1.html">ep1</a>.</p></div><div id="refview"><p class="refnote">Same content as the current ep1 companion page, kept here as a scan-and-study cheat sheet. The audio keeps playing in the player above while you read it.</p><h2 class="refh">Reference &amp; cheat sheet: What AI actually is</h2>
+<p>Companion to episode 1 of the series. Read it before or after the episode. It repeats the ideas in a form you can scan, compare and test.</p>
+<h2 id="the-idea-in-one-paragraph">The idea in one paragraph</h2><figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 470" role="img" aria-labelledby="f1t f1d" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><title id="f1t">What a language model sees</title><desc id="f1d">Four kinds of material feed the desk: your question, attached files, search results and hidden product instructions. The model predicts the next piece of text from the desk and appends it, repeating until the answer is done. Training knowledge stops at the knowledge cutoff.</desc><defs><marker id="ah0a2040" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0a2040"/></marker><marker id="ah2f8f8c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f8f8c"/></marker><marker id="aha8442f" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8442f"/></marker><marker id="ah5b6876" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6876"/></marker></defs><text x="180" y="24" font-size="17.6" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="180" dy="0.0">Everything on the desk</tspan></text><rect x="12" y="38" width="164" height="50" rx="8" fill="#fbefd3" stroke="#f2b84b" stroke-width="1.6"/><text x="94.0" y="67.9" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="94.0" dy="0.0">Your question</tspan></text><rect x="184" y="38" width="164" height="50" rx="8" fill="#fbefd3" stroke="#f2b84b" stroke-width="1.6"/><text x="266.0" y="67.9" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="266.0" dy="0.0">Attached files</tspan></text><rect x="12" y="96" width="164" height="50" rx="8" fill="#fbefd3" stroke="#f2b84b" stroke-width="1.6"/><text x="94.0" y="125.9" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="94.0" dy="0.0">Search results</tspan></text><rect x="184" y="96" width="164" height="50" rx="8" fill="#fbefd3" stroke="#f2b84b" stroke-width="1.6"/><text x="266.0" y="117.15" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="266.0" dy="0.0">Hidden product</tspan><tspan x="266.0" dy="19.2">instructions</tspan></text><path d="M180,150 L180,176" fill="none" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><rect x="40" y="178" width="240" height="60" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="160.0" y="204.15" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="160.0" dy="0.0">Language model</tspan><tspan x="160.0" dy="19.2">predicts the next piece of text</tspan></text><path d="M160,238 L160,266" fill="none" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><rect x="40" y="268" width="240" height="44" rx="8" fill="#ffffff" stroke="#0a2040" stroke-width="1.6"/><text x="160.0" y="294.9" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="160.0" dy="0.0">One more piece of text added</tspan></text><path d="M282,290 C346,290 346,208 284,208" fill="none" stroke="#2f8f8c" stroke-width="2" marker-end="url(#ah2f8f8c)" stroke-dasharray="6 4"/><text x="318" y="262" font-size="14.3" fill="#2f8f8c" text-anchor="middle" font-weight="400"><tspan x="318" dy="0.0">repeat</tspan></text><rect x="12" y="334" width="336" height="94.2" rx="8" fill="#f7e0dc" stroke="#a8442f" stroke-width="1.6"/><text x="180.0" y="386.70000000000005" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="180.0" dy="0.0"></tspan></text><text x="24" y="359.5" font-size="14.850000000000001" fill="#16202b" text-anchor="start" font-weight="400"><tspan x="24" dy="0.0">Knowledge cutoff: training stopped</tspan></text><text x="24" y="377.05" font-size="14.850000000000001" fill="#16202b" text-anchor="start" font-weight="400"><tspan x="24" dy="0.0">on a date. Later events are unknown</tspan></text><text x="24" y="394.6" font-size="14.850000000000001" fill="#16202b" text-anchor="start" font-weight="400"><tspan x="24" dy="0.0">unless the product puts them on the</tspan></text><text x="24" y="412.15000000000003" font-size="14.850000000000001" fill="#16202b" text-anchor="start" font-weight="400"><tspan x="24" dy="0.0">desk as text.</tspan></text></svg><figcaption>The model works only from the desk. Putting the right material there, and checking the one claim that matters, is the practical skill.</figcaption></figure>
+<p>A language model predicts likely text. That makes it fluent and useful, and it also means it can state wrong things in a confident tone. It works only from what is on its "desk" (the text in front of it). So the practical skill is not finding a smarter model. It is putting the right material on the desk and checking the one claim that matters.</p>
+<h2 id="key-terms">Key terms</h2><figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 264" role="img" aria-labelledby="f2t f2d" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><title id="f2t">Three kinds of AI and the question each needs</title><desc id="f2d">Predictive AI predicts a number or label, generative AI produces new content, and agentic AI takes actions toward a goal. The question to ask is how accurate, how checkable, or how reversible.</desc><defs><marker id="ah0a2040" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0a2040"/></marker><marker id="ah2f8f8c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f8f8c"/></marker><marker id="aha8442f" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8442f"/></marker><marker id="ah5b6876" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6876"/></marker></defs><rect x="12" y="12" width="206" height="68" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="115.0" y="51.6" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="115.0" dy="0.0"></tspan></text><text x="115.0" y="35.0" font-size="16.5" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="115.0" dy="0.0">Predictive</tspan></text><text x="115.0" y="52.5" font-size="14.3" fill="#5b6876" text-anchor="middle" font-weight="400"><tspan x="115.0" dy="0.0">predicts a number or</tspan><tspan x="115.0" dy="17.9">label</tspan></text><line x1="220" y1="46" x2="238" y2="46" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><rect x="240" y="20" width="108" height="52" rx="8" fill="#fbefd3" stroke="#f2b84b" stroke-width="1.6"/><text x="294.0" y="42.15" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="700"><tspan x="294.0" dy="0.0">How</tspan><tspan x="294.0" dy="19.2">accurate?</tspan></text><rect x="12" y="96" width="206" height="68" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="115.0" y="135.6" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="115.0" dy="0.0"></tspan></text><text x="115.0" y="127.125" font-size="16.5" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="115.0" dy="0.0">Generative</tspan></text><text x="115.0" y="144.625" font-size="14.3" fill="#5b6876" text-anchor="middle" font-weight="400"><tspan x="115.0" dy="0.0">produces new content</tspan></text><line x1="220" y1="130" x2="238" y2="130" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><rect x="240" y="104" width="108" height="52" rx="8" fill="#fbefd3" stroke="#f2b84b" stroke-width="1.6"/><text x="294.0" y="126.15" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="700"><tspan x="294.0" dy="0.0">How</tspan><tspan x="294.0" dy="19.2">checkable?</tspan></text><rect x="12" y="180" width="206" height="68" rx="8" fill="#e6ebf2" stroke="#0a2040" stroke-width="1.6"/><text x="115.0" y="219.6" font-size="17.6" fill="#16202b" text-anchor="middle" font-weight="400"><tspan x="115.0" dy="0.0"></tspan></text><text x="115.0" y="203.0" font-size="16.5" fill="#0a2040" text-anchor="middle" font-weight="700"><tspan x="115.0" dy="0.0">Agentic</tspan></text><text x="115.0" y="220.5" font-size="14.3" fill="#5b6876" text-anchor="middle" font-weight="400"><tspan x="115.0" dy="0.0">takes actions toward a</tspan><tspan x="115.0" dy="17.9">goal</tspan></text><line x1="220" y1="214" x2="238" y2="214" stroke="#0a2040" stroke-width="2" marker-end="url(#ah0a2040)"/><rect x="240" y="188" width="108" height="52" rx="8" fill="#fbefd3" stroke="#f2b84b" stroke-width="1.6"/><text x="294.0" y="210.15" font-size="15.400000000000002" fill="#16202b" text-anchor="middle" font-weight="700"><tspan x="294.0" dy="0.0">How</tspan><tspan x="294.0" dy="19.2">reversible?</tspan></text></svg><figcaption>The kind of AI decides the question you ask before you rely on it.</figcaption></figure>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI</td>
+<td>A label for many methods, coined in the 1955 Dartmouth proposal. The field has cycled between big promises and sober reality.</td>
+</tr>
+<tr>
+<td>Language model</td>
+<td>A system trained to predict the next piece of text. It produces answers by repeating that step.</td>
+</tr>
+<tr>
+<td>Desk</td>
+<td>Everything the model can see right now: your question, attached files, search results, hidden product instructions.</td>
+</tr>
+<tr>
+<td>Knowledge cutoff</td>
+<td>The date training stopped. Later events are unknown unless the product supplies them as text.</td>
+</tr>
+<tr>
+<td>Hallucination</td>
+<td>Fluent, specific, wrong output. Surveyed in the research literature.</td>
+</tr>
+<tr>
+<td>Predictive, generative, agentic AI</td>
+<td>Predicts a number or label; produces new content; takes actions toward a goal. Each needs a different question: how accurate, how checkable, how reversible.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="head-to-head-three-approaches-to-building-ai">Head-to-head: three approaches to building AI</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Rules written by people</th>
+<th>Learning from examples</th>
+<th>Deep learning (large models)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strength</td>
+<td>Readable, predictable</td>
+<td>Handles messy data</td>
+<td>Handles language, images and more at scale</td>
+</tr>
+<tr>
+<td>Weakness</td>
+<td>Brittle outside the rules</td>
+<td>Needs good examples</td>
+<td>Hard to inspect; can be confidently wrong</td>
+</tr>
+<tr>
+<td>Ask</td>
+<td>Who wrote the rules and when?</td>
+<td>What examples, and are they like mine?</td>
+<td>What did you check, and what is my fallback?</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="worked-scenario-invented-for-illustration">Worked scenario (invented, for illustration)</h2>
+<p>A team lead asks a chatbot, "What is our refund policy for annual plans?" with nothing attached. The answer sounds precise. It is a pattern of typical refund policies, not theirs. She pastes the actual policy and asks it to answer only from that text, quote the sentence used, and say so if the answer is missing. The second answer is shorter, quotable and checkable. She checks the one number a customer will rely on.</p>
+<h2 id="generalist-decision-card">Generalist decision card</h2>
+<ul>
+<li>Before relying on an answer, ask: is the model working from my material or from general patterns?</li>
+<li>Let AI draft freely. Let it act only where mistakes are cheap and reversible. Require a human yes before anything that sends, spends, deletes or speaks for you.</li>
+<li>Do not share confidential documents with an AI tool without checking your employer's rules and the tool's data terms.</li>
+</ul>
+<h2 id="counterpoints-and-limits">Counterpoints and limits</h2>
+<ul>
+<li>"Prediction" is a simple description of a complex system. Researchers debate how much understanding, if any, sits behind the fluency. The episode keeps to what is observable.</li>
+<li>Agreement between two answers is not correctness. A model can repeat the same mistake.</li>
+<li>The three-way split (predictive, generative, agentic) is a useful sorting, not a standard taxonomy.</li>
+</ul>
+<h2 id="try-it-10-minutes">Try it (10 minutes)</h2>
+<ol>
+<li>Ask about a small, specific, non-famous detail. Note how confident the tone is.</li>
+<li>Ask the same open question twice in separate chats. Note what differs.</li>
+<li>Ask a question about a non-sensitive document, once without it and once attached with "answer only from this document."</li>
+</ol>
+<h2 id="quiz-answers-below">Quiz (answers below)</h2>
+<ol>
+<li>Why can a fluent answer still be wrong?</li>
+<li>What is the "desk"?</li>
+<li>When a chatbot seems to remember you, what is usually happening?</li>
+<li>Name one action AI should not take without a human yes.</li>
+<li>Where on a maturity ladder is "ask a chatbot and hope"?</li>
+</ol>
+<details class="answers"><summary>Show answers</summary><p>1. It is trained to produce likely text, not checked facts. 2. The text the model can see right now. 3. The product stores notes and places them on the desk; the model itself starts fresh. 4. Sending, spending, deleting or speaking for you. 5. The improvised rung.</p></details>
+<h2 id="maturity-thread">Maturity thread</h2>
+<p>Improvised use (ask and accept) to repeatable use (a standard way to supply material and check output). The next rung is a method, not a bigger model.</p>
+<h2 id="sources-and-further-reading">Sources and further reading</h2>
+<ul>
+<li><a href="http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf">Dartmouth proposal (1955)</a></li>
+<li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need (2017)</a></li>
+<li><a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners (2020)</a></li>
+<li><a href="https://arxiv.org/abs/2311.05232">A Survey on Hallucination in LLMs</a></li>
+<li><a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation (Lewis et al., 2020)</a></li>
+<li><a href="https://cmmiinstitute.com/learning/appraisals/levels">CMMI Institute levels</a></li>
+</ul>
+</div></main>
 <script>
 const secs=[...document.querySelectorAll('section')];let ctrl=null,follow=true,active=-1,lastSeek=0,pendingSeek=null,tries=0,started=false,wantSeek=null;
 const label=document.getElementById('nowlabel'),stat=document.getElementById('apistat');
@@ -84,4 +200,4 @@ function plain(){const h=document.getElementById('embed-iframe');if(h&&!h.queryS
 sc.onerror=()=>{diag.script='failed to load';showDiag();plain();stat.textContent="The page could not load Spotify's control script in this browser (cause unknown: a browser extension, network setting or Spotify itself). A basic Spotify player is shown instead. Time buttons will not move it; use its scrubber and the time on each button."};
 document.head.appendChild(sc);
 setTimeout(()=>{if(!ctrl&&!/could not load/.test(stat.textContent)){plain();stat.textContent='The control player did not become ready in 9 seconds. A basic Spotify player is shown instead; use its scrubber and the time on each button.'}},9000);
-</script></body></html>
+</script><script>function showTab(n){document.body.classList.toggle("showref",n==1);document.getElementById("tabf").setAttribute("aria-selected",n==0);document.getElementById("tabr").setAttribute("aria-selected",n==1);window.scrollTo(0,0)}</script></body></html>
