@@ -55,7 +55,7 @@ section.on .seek{background:var(--teal)}
 
 <p class="cap">Based on the episode script and timings measured on the master file uploaded to Spotify. Companion reference page: <a href="https://blademonkey.github.io/ai-learning-companions/ep1.html">ep1</a>.</p></main>
 <script>
-const secs=[...document.querySelectorAll('section')];let ctrl=null,follow=true,active=-1,lastSeek=0,pendingSeek=null,started=false,wantSeek=null;
+const secs=[...document.querySelectorAll('section')];let ctrl=null,follow=true,active=-1,lastSeek=0,pendingSeek=null,tries=0,started=false,wantSeek=null;
 const label=document.getElementById('nowlabel'),stat=document.getElementById('apistat');
 const OK='Player loaded. Auto-follow is not verified yet: press play and see if the highlight moves. The time buttons always work.';
 const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
@@ -74,7 +74,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-seek]');if
 window.onSpotifyIframeApiReady=api=>{api.createController(document.getElementById('embed-iframe'),{uri:'spotify:episode:0VNun0qG21JcZrxj6aKEks',width:'100%',height:152},c=>{ctrl=c;stat.textContent=OK;
  c.addListener('playback_update',e=>{const p=e.data.position/1000;
   if(!e.data.isPaused)started=true;
-  if(pendingSeek!==null){if(started&&!e.data.isPaused&&p>=1){const t=pendingSeek;pendingSeek=null;c.seek(t);stat.textContent='Jumped player to '+mmss(t)}return}
+  if(pendingSeek!==null){if(Math.abs(p-pendingSeek)<=4&&!e.data.isPaused){pendingSeek=null;tries=0;stat.textContent='Jumped player to '+mmss(Math.round(p))}else if(started&&!e.data.isPaused&&p>=1&&tries<12){tries++;c.seek(pendingSeek)}return}
   if(!e.data.isPaused||p>0)setActive(pos(p))});
  c.addListener('ready',()=>{stat.textContent=OK});
  if(wantSeek!==null){const t=wantSeek;wantSeek=null;go(t)}})};
