@@ -53,22 +53,33 @@ section.on .seek{background:var(--teal)}
 <section id="s13" data-start="1463" data-end="1500"><div class="hd"><button class="seek" data-seek="1463" aria-label="Play from 24:23">&#9654; 24:23</button><h2>Where this sits on the maturity ladder, and what is next</h2></div><div class="ladder"><div class="r3">Next rung: a repeatable way of giving it the right material and checking its work (not a smarter model)</div><div class="r1 you">Just asking a chatbot and hoping: improvised, and fine for a start</div></div><p class="cap">Next episode: how these models work and fail in more detail: tokens, context windows, why the same prompt gives different answers.</p></section>
 <section id="s14" data-start="1500" data-end="1566"><div class="hd"><button class="seek" data-seek="1500" aria-label="Play from 25:00">&#9654; 25:00</button><h2>A note on sources</h2></div><p>The series aims to back factual claims with sources. The full list is on the main companion page: <a href="https://blademonkey.github.io/ai-learning-companions/ep1.html#sources-and-further-reading">Sources and further reading</a>.</p></section>
 
-<p class="cap">Based on the episode script and measured timings of the published audio. Companion reference page: <a href="https://blademonkey.github.io/ai-learning-companions/ep1.html">ep1</a>.</p></main>
-<script src="https://open.spotify.com/embed/iframe-api/v1" async></script><script>
-const secs=[...document.querySelectorAll('section')];let ctrl=null,follow=true,active=-1,lastSeek=0;
+<p class="cap">Based on the episode script and timings measured on the master file uploaded to Spotify. Companion reference page: <a href="https://blademonkey.github.io/ai-learning-companions/ep1.html">ep1</a>.</p></main>
+<script>
+const secs=[...document.querySelectorAll('section')];let ctrl=null,follow=true,active=-1,lastSeek=0,pendingSeek=null,started=false,wantSeek=null;
 const label=document.getElementById('nowlabel'),stat=document.getElementById('apistat');
+const OK='Player loaded. Auto-follow is not verified yet: press play and see if the highlight moves. The time buttons always work.';
+const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
 function setActive(i){if(i===active)return;active=i;secs.forEach((s,j)=>s.classList.toggle('on',j===i));
- if(i>=0){label.textContent=document.querySelector('#s'+i+' h2').textContent;if(follow&&Date.now()-lastSeek>0)secs[i].scrollIntoView({behavior:'smooth',block:'start'});}}
+ if(i>=0){label.textContent=document.querySelector('#s'+i+' h2').textContent;if(follow)secs[i].scrollIntoView({behavior:'smooth',block:'start'});}}
 function pos(sec){let k=0;secs.forEach((s,j)=>{if(sec>=+s.dataset.start)k=j});return k}
 document.getElementById('follow').addEventListener('change',e=>{follow=e.target.checked});
+function go(s){
+ if(!ctrl){wantSeek=s;stat.textContent='Player still loading. It will jump to '+mmss(s)+' as soon as it is ready. If this stays, the player may be blocked in this browser; use the scrubber and the time on the button.';return}
+ lastSeek=Date.now();
+ if(!started){pendingSeek=s;ctrl.seek(s);ctrl.resume();stat.textContent='Starting the player, then jumping to '+mmss(s)+'...'}
+ else{ctrl.seek(s);ctrl.resume();stat.textContent='Jumped player to '+mmss(s)}}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-seek]');if(!a)return;const s=+a.dataset.seek;
  if(a.tagName==='A')e.preventDefault();
- if(ctrl){lastSeek=Date.now();ctrl.seek(s);ctrl.resume();stat.textContent='Jumped player to '+Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
- else{stat.textContent='Player not ready. Use the player scrubber and the time shown on the button.'}
- const idx=pos(s);setActive(-2);setActive(idx);});
-window.onSpotifyIframeApiReady=api=>{api.createController(document.getElementById('embed-iframe'),{uri:'spotify:episode:0VNun0qG21JcZrxj6aKEks',width:'100%',height:152},c=>{ctrl=c;stat.textContent='Player loaded. Auto-follow is not verified yet: press play and see if the highlight moves. The time buttons always work.';
- c.addListener('playback_update',e=>{const p=e.data.position/1000;if(!e.data.isPaused||p>0)setActive(pos(p))});
- c.addListener('ready',()=>{stat.textContent='Player loaded. Auto-follow is not verified yet: press play and see if the highlight moves. The time buttons always work.'})})};
-const dm=location.search.match(/demo=(\d+)/);if(dm){setActive(pos(+dm[1]))}
-setTimeout(()=>{if(!ctrl)stat.textContent='Live follow is not available in this browser. The timestamp buttons still show where each idea is.'},9000);
+ setActive(-2);setActive(pos(s));go(s)});
+window.onSpotifyIframeApiReady=api=>{api.createController(document.getElementById('embed-iframe'),{uri:'spotify:episode:0VNun0qG21JcZrxj6aKEks',width:'100%',height:152},c=>{ctrl=c;stat.textContent=OK;
+ c.addListener('playback_update',e=>{const p=e.data.position/1000;
+  if(!e.data.isPaused)started=true;
+  if(pendingSeek!==null){if(started){const t=pendingSeek;pendingSeek=null;c.seek(t);stat.textContent='Jumped player to '+mmss(t)}return}
+  if(!e.data.isPaused||p>0)setActive(pos(p))});
+ c.addListener('ready',()=>{stat.textContent=OK});
+ if(wantSeek!==null){const t=wantSeek;wantSeek=null;go(t)}})};
+const sc=document.createElement('script');sc.src='https://open.spotify.com/embed/iframe-api/v1';sc.async=true;
+sc.onerror=()=>{stat.textContent="Spotify's player script did not load in this browser (an ad or tracker blocker can cause this). The time buttons still show where each idea is; use the player's scrubber."};
+document.head.appendChild(sc);
+setTimeout(()=>{if(!ctrl&&!/did not load/.test(stat.textContent))stat.textContent='Live follow is not available in this browser yet. The timestamp buttons still show where each idea is.'},9000);
 </script></body></html>
